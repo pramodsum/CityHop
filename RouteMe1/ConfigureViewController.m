@@ -41,9 +41,9 @@
 
 
 - (IBAction)addDestination:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Add Destination" message:@"Please enter a destination." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];
+//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Add Destination" message:@"Please enter a destination." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

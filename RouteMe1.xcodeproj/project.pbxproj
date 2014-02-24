@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		498AC87018BAB27700548A1E /* CitySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 498AC86F18BAB27700548A1E /* CitySearch.m */; };
 		498AC87218BAB3AB00548A1E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498AC87118BAB3AB00548A1E /* MapKit.framework */; };
+		49EE963B18BBA2690035F012 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */; };
 		4FE431F818AFD15700D06F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F718AFD15700D06F9B /* Foundation.framework */; };
 		4FE431FA18AFD15700D06F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F918AFD15700D06F9B /* CoreGraphics.framework */; };
 		4FE431FC18AFD15700D06F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431FB18AFD15700D06F9B /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 		498AC86E18BAB27700548A1E /* CitySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearch.h; sourceTree = "<group>"; };
 		498AC86F18BAB27700548A1E /* CitySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearch.m; sourceTree = "<group>"; };
 		498AC87118BAB3AB00548A1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		49EE963918BBA2690035F012 /* DestinationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearchViewController.h; sourceTree = "<group>"; };
+		49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearchViewController.m; sourceTree = "<group>"; };
 		4FE431F418AFD15700D06F9B /* RouteMe1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMe1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE431F718AFD15700D06F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FE431F918AFD15700D06F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,8 +151,8 @@
 				4FE4323918AFDA6400D06F9B /* View */,
 				4FE4323A18AFDA6A00D06F9B /* Controller */,
 				4FE4321A18AFD15800D06F9B /* Images.xcassets */,
-				4FE4321118AFD15700D06F9B /* RouteMe1.xcdatamodeld */,
 				4FE4320018AFD15700D06F9B /* Supporting Files */,
+				4FE4321118AFD15700D06F9B /* RouteMe1.xcdatamodeld */,
 			);
 			path = RouteMe1;
 			sourceTree = "<group>";
@@ -218,6 +221,8 @@
 				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
 				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
 				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
+				49EE963918BBA2690035F012 /* DestinationSearchViewController.h */,
+				49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
 				498AC87018BAB27700548A1E /* CitySearch.m in Sources */,
 				4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */,
+				49EE963B18BBA2690035F012 /* DestinationSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
