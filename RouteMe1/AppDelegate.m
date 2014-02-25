@@ -23,6 +23,9 @@
     // Override point for customization after application launch.
     
     _tripManager = [[TripManager alloc] init];
+
+    //Google API Key
+    [GMSServices provideAPIKey:@"AIzaSyALlkTKco5knj1DCXMQYhH2xnkT4c9rHhM"];
     
     return YES;
 }
