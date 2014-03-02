@@ -15,7 +15,6 @@
 		4FE4320618AFD15700D06F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4320518AFD15700D06F9B /* main.m */; };
 		4FE4320A18AFD15700D06F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4320918AFD15700D06F9B /* AppDelegate.m */; };
 		4FE4320D18AFD15700D06F9B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE4320B18AFD15700D06F9B /* Main_iPhone.storyboard */; };
-		4FE4321018AFD15700D06F9B /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */; };
 		4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4321118AFD15700D06F9B /* RouteMe1.xcdatamodeld */; };
 		4FE4321B18AFD15800D06F9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE4321A18AFD15800D06F9B /* Images.xcassets */; };
 		4FE4322218AFD15800D06F9B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE4322118AFD15800D06F9B /* XCTest.framework */; };
@@ -29,6 +28,8 @@
 		4FE4324518AFE92C00D06F9B /* DestinationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */; };
 		4FE4324818AFE99800D06F9B /* TripManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324718AFE99800D06F9B /* TripManager.m */; };
 		4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324A18AFEA2200D06F9B /* DestinationObject.m */; };
+		4FEB075A18C3A19200AFB714 /* ActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */; };
+		4FEB075E18C3A49800AFB714 /* ActivityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB075D18C3A49800AFB714 /* ActivityObject.m */; };
 		4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +56,6 @@
 		4FE4320818AFD15700D06F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4FE4320918AFD15700D06F9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4FE4320C18AFD15700D06F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		4FE4320F18AFD15700D06F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		4FE4321218AFD15700D06F9B /* RouteMe1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RouteMe1.xcdatamodel; sourceTree = "<group>"; };
 		4FE4321A18AFD15800D06F9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4FE4322018AFD15800D06F9B /* RouteMe1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteMe1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +73,10 @@
 		4FE4324718AFE99800D06F9B /* TripManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripManager.m; sourceTree = "<group>"; };
 		4FE4324918AFEA2200D06F9B /* DestinationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationObject.h; sourceTree = "<group>"; };
 		4FE4324A18AFEA2200D06F9B /* DestinationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationObject.m; sourceTree = "<group>"; };
+		4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesViewController.h; sourceTree = "<group>"; };
+		4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesViewController.m; sourceTree = "<group>"; };
+		4FEB075C18C3A49800AFB714 /* ActivityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject.h; sourceTree = "<group>"; };
+		4FEB075D18C3A49800AFB714 /* ActivityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityObject.m; sourceTree = "<group>"; };
 		4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDestinationsCell.h; sourceTree = "<group>"; };
 		4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDestinationsCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,8 +187,7 @@
 				4FE4320918AFD15700D06F9B /* AppDelegate.m */,
 				4FE4324618AFE99800D06F9B /* TripManager.h */,
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
-				4FE4324918AFEA2200D06F9B /* DestinationObject.h */,
-				4FE4324A18AFEA2200D06F9B /* DestinationObject.m */,
+				4FEB075F18C3A4D600AFB714 /* Container Objects */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,10 +195,8 @@
 		4FE4323918AFDA6400D06F9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FEB075B18C3A41300AFB714 /* Cells */,
 				4FE4320B18AFD15700D06F9B /* Main_iPhone.storyboard */,
-				4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */,
-				4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */,
-				4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -209,8 +210,30 @@
 				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
 				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
 				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
+				4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */,
+				4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4FEB075B18C3A41300AFB714 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */,
+				4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		4FEB075F18C3A4D600AFB714 /* Container Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4FE4324918AFEA2200D06F9B /* DestinationObject.h */,
+				4FE4324A18AFEA2200D06F9B /* DestinationObject.m */,
+				4FEB075C18C3A49800AFB714 /* ActivityObject.h */,
+				4FEB075D18C3A49800AFB714 /* ActivityObject.m */,
+			);
+			name = "Container Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +312,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FE4321018AFD15700D06F9B /* Main_iPad.storyboard in Resources */,
 				4FE4321B18AFD15800D06F9B /* Images.xcassets in Resources */,
 				4FE4320D18AFD15700D06F9B /* Main_iPhone.storyboard in Resources */,
 				4FE4320418AFD15700D06F9B /* InfoPlist.strings in Resources */,
@@ -314,10 +336,12 @@
 				4FE4323D18AFDB1C00D06F9B /* LoginViewController.m in Sources */,
 				4FE4320A18AFD15700D06F9B /* AppDelegate.m in Sources */,
 				4FE4324518AFE92C00D06F9B /* DestinationsTableViewController.m in Sources */,
+				4FEB075A18C3A19200AFB714 /* ActivitiesViewController.m in Sources */,
 				4FE4324818AFE99800D06F9B /* TripManager.m in Sources */,
 				4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */,
 				4FE4320618AFD15700D06F9B /* main.m in Sources */,
 				4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */,
+				4FEB075E18C3A49800AFB714 /* ActivityObject.m in Sources */,
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
 				4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */,
 			);
@@ -356,14 +380,6 @@
 				4FE4320C18AFD15700D06F9B /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4FE4320F18AFD15700D06F9B /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		4FE4322B18AFD15800D06F9B /* InfoPlist.strings */ = {
