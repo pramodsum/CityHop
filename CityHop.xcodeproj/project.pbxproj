@@ -44,23 +44,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4FE431F418AFD15700D06F9B /* RouteMe1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMe1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE431F718AFD15700D06F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FE431F918AFD15700D06F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4FE431FB18AFD15700D06F9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4FE431FD18AFD15700D06F9B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4FE4320118AFD15700D06F9B /* RouteMe1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RouteMe1-Info.plist"; sourceTree = "<group>"; };
+		4FE4320118AFD15700D06F9B /* CityHop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CityHop-Info.plist"; sourceTree = "<group>"; };
 		4FE4320318AFD15700D06F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FE4320518AFD15700D06F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4FE4320718AFD15700D06F9B /* RouteMe1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RouteMe1-Prefix.pch"; sourceTree = "<group>"; };
+		4FE4320718AFD15700D06F9B /* CityHop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityHop-Prefix.pch"; sourceTree = "<group>"; };
 		4FE4320818AFD15700D06F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4FE4320918AFD15700D06F9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4FE4320C18AFD15700D06F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		4FE4321218AFD15700D06F9B /* RouteMe1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RouteMe1.xcdatamodel; sourceTree = "<group>"; };
 		4FE4321A18AFD15800D06F9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4FE4322018AFD15800D06F9B /* RouteMe1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteMe1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FE4322018AFD15800D06F9B /* CityHopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityHopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE4322118AFD15800D06F9B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4FE4322A18AFD15800D06F9B /* RouteMe1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RouteMe1Tests-Info.plist"; sourceTree = "<group>"; };
+		4FE4322A18AFD15800D06F9B /* CityHopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CityHopTests-Info.plist"; sourceTree = "<group>"; };
 		4FE4322C18AFD15800D06F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FE4322E18AFD15800D06F9B /* RouteMe1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteMe1Tests.m; sourceTree = "<group>"; };
 		4FE4323B18AFDB1C00D06F9B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		4FE431F518AFD15700D06F9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FE431F418AFD15700D06F9B /* RouteMe1.app */,
-				4FE4322018AFD15800D06F9B /* RouteMe1Tests.xctest */,
+				4FE431F418AFD15700D06F9B /* CityHop.app */,
+				4FE4322018AFD15800D06F9B /* CityHopTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,10 +154,10 @@
 		4FE4320018AFD15700D06F9B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4FE4320118AFD15700D06F9B /* RouteMe1-Info.plist */,
+				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
 				4FE4320218AFD15700D06F9B /* InfoPlist.strings */,
 				4FE4320518AFD15700D06F9B /* main.m */,
-				4FE4320718AFD15700D06F9B /* RouteMe1-Prefix.pch */,
+				4FE4320718AFD15700D06F9B /* CityHop-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 		4FE4322918AFD15800D06F9B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4FE4322A18AFD15800D06F9B /* RouteMe1Tests-Info.plist */,
+				4FE4322A18AFD15800D06F9B /* CityHopTests-Info.plist */,
 				4FE4322B18AFD15800D06F9B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -239,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4FE431F318AFD15700D06F9B /* RouteMe1 */ = {
+		4FE431F318AFD15700D06F9B /* CityHop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FE4323218AFD15800D06F9B /* Build configuration list for PBXNativeTarget "RouteMe1" */;
+			buildConfigurationList = 4FE4323218AFD15800D06F9B /* Build configuration list for PBXNativeTarget "CityHop" */;
 			buildPhases = (
 				4FE431F018AFD15700D06F9B /* Sources */,
 				4FE431F118AFD15700D06F9B /* Frameworks */,
@@ -251,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = RouteMe1;
+			name = CityHop;
 			productName = RouteMe1;
-			productReference = 4FE431F418AFD15700D06F9B /* RouteMe1.app */;
+			productReference = 4FE431F418AFD15700D06F9B /* CityHop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4FE4321F18AFD15800D06F9B /* RouteMe1Tests */ = {
+		4FE4321F18AFD15800D06F9B /* CityHopTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FE4323518AFD15800D06F9B /* Build configuration list for PBXNativeTarget "RouteMe1Tests" */;
+			buildConfigurationList = 4FE4323518AFD15800D06F9B /* Build configuration list for PBXNativeTarget "CityHopTests" */;
 			buildPhases = (
 				4FE4321C18AFD15800D06F9B /* Sources */,
 				4FE4321D18AFD15800D06F9B /* Frameworks */,
@@ -269,9 +269,9 @@
 			dependencies = (
 				4FE4322718AFD15800D06F9B /* PBXTargetDependency */,
 			);
-			name = RouteMe1Tests;
+			name = CityHopTests;
 			productName = RouteMe1Tests;
-			productReference = 4FE4322018AFD15800D06F9B /* RouteMe1Tests.xctest */;
+			productReference = 4FE4322018AFD15800D06F9B /* CityHopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -288,7 +288,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4FE431EF18AFD15700D06F9B /* Build configuration list for PBXProject "RouteMe1" */;
+			buildConfigurationList = 4FE431EF18AFD15700D06F9B /* Build configuration list for PBXProject "CityHop" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -301,8 +301,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FE431F318AFD15700D06F9B /* RouteMe1 */,
-				4FE4321F18AFD15800D06F9B /* RouteMe1Tests */,
+				4FE431F318AFD15700D06F9B /* CityHop */,
+				4FE4321F18AFD15800D06F9B /* CityHopTests */,
 			);
 		};
 /* End PBXProject section */
@@ -360,7 +360,7 @@
 /* Begin PBXTargetDependency section */
 		4FE4322718AFD15800D06F9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4FE431F318AFD15700D06F9B /* RouteMe1 */;
+			target = 4FE431F318AFD15700D06F9B /* CityHop */;
 			targetProxy = 4FE4322618AFD15800D06F9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -473,9 +473,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RouteMe1/RouteMe1-Prefix.pch";
-				INFOPLIST_FILE = "RouteMe1/RouteMe1-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "RouteMe1/CityHop-Prefix.pch";
+				INFOPLIST_FILE = "RouteMe1/CityHop-Info.plist";
+				PRODUCT_NAME = CityHop;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -486,9 +487,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RouteMe1/RouteMe1-Prefix.pch";
-				INFOPLIST_FILE = "RouteMe1/RouteMe1-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "RouteMe1/CityHop-Prefix.pch";
+				INFOPLIST_FILE = "RouteMe1/CityHop-Info.plist";
+				PRODUCT_NAME = CityHop;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -509,8 +511,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "RouteMe1Tests/RouteMe1Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RouteMe1Tests/CityHopTests-Info.plist";
+				PRODUCT_NAME = CityHopTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -528,8 +530,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RouteMe1/RouteMe1-Prefix.pch";
-				INFOPLIST_FILE = "RouteMe1Tests/RouteMe1Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "RouteMe1Tests/CityHopTests-Info.plist";
+				PRODUCT_NAME = CityHopTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -538,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4FE431EF18AFD15700D06F9B /* Build configuration list for PBXProject "RouteMe1" */ = {
+		4FE431EF18AFD15700D06F9B /* Build configuration list for PBXProject "CityHop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FE4323018AFD15800D06F9B /* Debug */,
@@ -547,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FE4323218AFD15800D06F9B /* Build configuration list for PBXNativeTarget "RouteMe1" */ = {
+		4FE4323218AFD15800D06F9B /* Build configuration list for PBXNativeTarget "CityHop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FE4323318AFD15800D06F9B /* Debug */,
@@ -556,7 +558,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FE4323518AFD15800D06F9B /* Build configuration list for PBXNativeTarget "RouteMe1Tests" */ = {
+		4FE4323518AFD15800D06F9B /* Build configuration list for PBXNativeTarget "CityHopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FE4323618AFD15800D06F9B /* Debug */,

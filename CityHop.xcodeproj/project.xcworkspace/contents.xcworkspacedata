@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:RouteMe1.xcodeproj">
+      location = "self:CityHop.xcodeproj">
    </FileRef>
 </Workspace>
