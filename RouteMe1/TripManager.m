@@ -27,7 +27,7 @@
     }
     
     DestinationObject *d = [[DestinationObject alloc] init];
-    [d setName:name];
+    [d setName:[name capitalizedString]];
     [d setDestID:[NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:d];
     

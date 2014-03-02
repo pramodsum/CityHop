@@ -40,8 +40,26 @@
         activitySuggestions = [[NSMutableArray alloc] init];
     }
     
-    [self.navigationItem setTitle:((DestinationObject *)[_destinations objectAtIndex:_index]).name];
-
+    
+    [self.navigationItem setTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name];
+    
+    if (_index.intValue < [_destinations count]-1) {
+        // button for next city
+        
+        UIBarButtonItem *nextCityBtn =
+        [[UIBarButtonItem alloc]
+            initWithTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name
+            style:UIBarButtonItemStylePlain
+            target:self
+            action:@selector(nextCity:)];
+        
+        
+        [self.navigationItem setRightBarButtonItem:nextCityBtn];
+        
+    }else{
+        // button for trip options
+    }
+    
 
 }
 
@@ -54,6 +72,11 @@
 -(void)hideSearchBar{
     CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
     self.tableView.contentOffset = offset;
+}
+
+- (void) nextCity:(id)sender
+{
+    [self performSegueWithIdentifier:@"next_city_segue" sender:self];
 }
 
 #pragma mark - Table view data source
@@ -86,6 +109,19 @@
     
     return cell;
 }
+
+#pragma mark - Navigation
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"next_city_segue"]) {
+        ActivitiesViewController *vc = (ActivitiesViewController *)[segue destinationViewController];
+        [vc setDestinations:_destinations];
+        [vc setIndex:[NSNumber numberWithInt:_index.intValue+1]];
+    }
+}
+
 
 
 @end

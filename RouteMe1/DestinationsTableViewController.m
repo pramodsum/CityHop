@@ -34,6 +34,7 @@
     
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    
     // [self hideSearchBar];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -88,6 +89,7 @@
     [cell.textLabel
         setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
     [cell setDestID:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }

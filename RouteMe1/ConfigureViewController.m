@@ -40,7 +40,8 @@
     
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
     [self.navigationItem setRightBarButtonItem:doneBtn];
-
+    
+    
 }
 
 - (void)doneButtonSelected:(id)sender{
@@ -88,7 +89,7 @@
     }else if ([segueName isEqualToString:@"select_activities_segue"]){
         ActivitiesViewController *vc = (ActivitiesViewController *) [segue destinationViewController];
         [vc setDestinations:[appDelegate.tripManager getDestinations]];
-        [vc setIndex:0];
+        [vc setIndex:[NSNumber numberWithInt:0]];
     }
     
 }

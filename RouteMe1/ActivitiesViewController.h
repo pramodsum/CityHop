@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSArray *destinations;
-@property NSInteger *index;
+@property (strong, nonatomic) NSNumber *index;
 
 @end
