@@ -9,6 +9,7 @@
 #import "ConfigureViewController.h"
 #import "AppDelegate.h"
 #import "DestinationsTableViewController.h"
+#import "ActivitiesViewController.h"
 
 @interface ConfigureViewController ()
 
@@ -36,9 +37,23 @@
 	// Do any additional setup after loading the view.
     
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
+    [self.navigationItem setRightBarButtonItem:doneBtn];
+    
+    
 }
 
+- (void)doneButtonSelected:(id)sender{
+    
+    if ([appDelegate.tripManager getDestinations] != nil && [[appDelegate.tripManager getDestinations] count] > 0) {
+        [self performSegueWithIdentifier:@"select_activities_segue" sender:self];
+    }else{
+        [[UIAlertView alloc]
+            initWithTitle:@"Umm where are you going" message:@"Please enter at least one destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
+    }
+    
+}
 
 - (IBAction)addDestination:(id)sender {
 //    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Add Destination" message:@"Please enter a destination." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -62,6 +77,7 @@
         NSNumber *iid = [appDelegate.tripManager addDestinationWithString:[alertView textFieldAtIndex:0].text];
         NSLog(@"%lu", (unsigned long)[[appDelegate.tripManager getDestinations] count]);
         [childController.tableView reloadData];
+        
     }
 }
 
@@ -70,6 +86,10 @@
     NSString * segueName = segue.identifier;
     if ([segueName isEqualToString: @"destination_container"]) {
         childController = (DestinationsTableViewController *) [segue destinationViewController];
+    }else if ([segueName isEqualToString:@"select_activities_segue"]){
+        ActivitiesViewController *vc = (ActivitiesViewController *) [segue destinationViewController];
+        [vc setDestinations:[appDelegate.tripManager getDestinations]];
+        [vc setIndex:[NSNumber numberWithInt:0]];
     }
     
 }

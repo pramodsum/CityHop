@@ -33,6 +33,9 @@
     [super viewDidLoad];
     
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    
+    // [self hideSearchBar];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,6 +49,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void)hideSearchBar{
+    CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
+    self.tableView.contentOffset = offset;
+}
+
 
 #pragma mark - Table view data source
 
@@ -79,18 +89,12 @@
     [cell.textLabel
         setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
     [cell setDestID:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+
 
 
 // Override to support editing the table view.
@@ -106,28 +110,15 @@
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
     }   
 }
  
 
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -137,6 +128,6 @@
     // Pass the selected object to the new view controller.
 }
 
- */
+
 
 @end
