@@ -165,7 +165,11 @@
                     <connections>
                         <outlet property="addBtn" destination="eQL-qs-pFJ" id="kZX-G4-Jmv"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <outlet property="searchDisplayController" destination="iKc-Gw-OWh" id="2PG-3h-cLg"/>
+=======
+                        <segue destination="yNr-3H-cmP" kind="push" identifier="select_activities_segue" id="cps-AS-Yhz"/>
+>>>>>>> origin/adam_dev1
 =======
                         <segue destination="yNr-3H-cmP" kind="push" identifier="select_activities_segue" id="cps-AS-Yhz"/>
 >>>>>>> origin/adam_dev1
@@ -183,6 +187,7 @@
             </objects>
             <point key="canvasLocation" x="908" y="64"/>
         </scene>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <!--View Controller-->
         <scene sceneID="WnN-Cx-k23">
@@ -261,6 +266,8 @@
             </objects>
             <point key="canvasLocation" x="1291" y="105"/>
 =======
+=======
+>>>>>>> origin/adam_dev1
         <!--Activities View Controller - Activity Suggestions-->
         <scene sceneID="CaJ-sN-hDY">
             <objects>
@@ -311,6 +318,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2I-eW-7lP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401" y="64"/>
+<<<<<<< HEAD
+>>>>>>> origin/adam_dev1
+=======
 >>>>>>> origin/adam_dev1
         </scene>
         <!--Destinations Table View Controller-->
@@ -331,8 +341,13 @@
                         </searchBar>
                         <prototypes>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="a5T-4Z-B8u">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+=======
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a5T-4Z-B8u" customClass="EditDestinationsCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+>>>>>>> origin/adam_dev1
 =======
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a5T-4Z-B8u" customClass="EditDestinationsCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>

@@ -62,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
 <<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 		49344FC918D121670043AD1B /* POISuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionViewController.h; sourceTree = "<group>"; };
 		49344FCA18D121670043AD1B /* POISuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionViewController.m; sourceTree = "<group>"; };
@@ -86,6 +87,9 @@
 		49EE965218BC1BBF0035F012 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		49EE965418BC1BC70035F012 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4FE431F418AFD15700D06F9B /* RouteMe1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMe1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 =======
 		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 >>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
@@ -242,9 +246,13 @@
 		4FE4320018AFD15700D06F9B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
 <<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				49EE963C18BBF97F0035F012 /* ch_bg.png */,
 				4FE4320118AFD15700D06F9B /* RouteMe1-Info.plist */,
+=======
+				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
+>>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 =======
 				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
 >>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
@@ -280,11 +288,15 @@
 				4FE4320918AFD15700D06F9B /* AppDelegate.m */,
 				4FE4324618AFE99800D06F9B /* TripManager.h */,
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
+<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
 <<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				4FE4324918AFEA2200D06F9B /* DestinationObject.h */,
 				4FE4324A18AFEA2200D06F9B /* DestinationObject.m */,
 				4960277318CA8BC10065E9EC /* DestinationSearch.h */,
 				4960277418CA8BC10065E9EC /* DestinationSearch.m */,
+=======
+				4FEB075F18C3A4D600AFB714 /* Container Objects */,
+>>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 =======
 				4FEB075F18C3A4D600AFB714 /* Container Objects */,
 >>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
@@ -297,12 +309,15 @@
 			children = (
 				4FEB075B18C3A41300AFB714 /* Cells */,
 				4FE4320B18AFD15700D06F9B /* Main_iPhone.storyboard */,
+<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
 <<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */,
 				4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */,
 				4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */,
 				49344FCC18D122CE0043AD1B /* POISuggestionCell.h */,
 				49344FCD18D122CE0043AD1B /* POISuggestionCell.m */,
+=======
+>>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 =======
 >>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 			);
@@ -318,9 +333,14 @@
 				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
 				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
 				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
+<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
 <<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				4960276818CA58B30065E9EC /* DestinationSearch */,
 				4960276918CA58BA0065E9EC /* POISearch */,
+=======
+				4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */,
+				4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */,
+>>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 =======
 				4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */,
 				4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */,
