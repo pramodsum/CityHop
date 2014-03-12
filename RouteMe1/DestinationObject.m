@@ -14,5 +14,6 @@
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
 @synthesize destID = _destID;
+@synthesize activities = _activities;
 
 @end

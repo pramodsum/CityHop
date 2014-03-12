@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *destID;
+@property (nonatomic, strong) NSMutableArray *activities;
 
 @end

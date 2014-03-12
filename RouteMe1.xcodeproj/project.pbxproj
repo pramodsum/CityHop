@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49344FCB18D121670043AD1B /* POISuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49344FCA18D121670043AD1B /* POISuggestionViewController.m */; };
+		49344FCE18D122CE0043AD1B /* POISuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49344FCD18D122CE0043AD1B /* POISuggestionCell.m */; };
 		4960277518CA8BC10065E9EC /* DestinationSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4960277418CA8BC10065E9EC /* DestinationSearch.m */; };
-		497FB22618C65FCC00D74309 /* POISuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497FB22518C65FCC00D74309 /* POISuggestionViewController.m */; };
 		498AC87218BAB3AB00548A1E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498AC87118BAB3AB00548A1E /* MapKit.framework */; };
 		49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */; };
 		49EE963D18BBF97F0035F012 /* ch_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EE963C18BBF97F0035F012 /* ch_bg.png */; };
@@ -60,10 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49344FC918D121670043AD1B /* POISuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionViewController.h; sourceTree = "<group>"; };
+		49344FCA18D121670043AD1B /* POISuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionViewController.m; sourceTree = "<group>"; };
+		49344FCC18D122CE0043AD1B /* POISuggestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionCell.h; sourceTree = "<group>"; };
+		49344FCD18D122CE0043AD1B /* POISuggestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionCell.m; sourceTree = "<group>"; };
 		4960277318CA8BC10065E9EC /* DestinationSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearch.h; sourceTree = "<group>"; };
 		4960277418CA8BC10065E9EC /* DestinationSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearch.m; sourceTree = "<group>"; };
-		497FB22418C65FCC00D74309 /* POISuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionViewController.h; sourceTree = "<group>"; };
-		497FB22518C65FCC00D74309 /* POISuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionViewController.m; sourceTree = "<group>"; };
 		498AC87118BAB3AB00548A1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		49B3C81C18BF7D8E009600A8 /* DestinationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearchViewController.h; sourceTree = "<group>"; };
 		49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearchViewController.m; sourceTree = "<group>"; };
@@ -165,8 +168,8 @@
 		4960276918CA58BA0065E9EC /* POISearch */ = {
 			isa = PBXGroup;
 			children = (
-				497FB22418C65FCC00D74309 /* POISuggestionViewController.h */,
-				497FB22518C65FCC00D74309 /* POISuggestionViewController.m */,
+				49344FC918D121670043AD1B /* POISuggestionViewController.h */,
+				49344FCA18D121670043AD1B /* POISuggestionViewController.m */,
 			);
 			name = POISearch;
 			sourceTree = "<group>";
@@ -280,6 +283,8 @@
 				4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */,
 				4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */,
 				4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */,
+				49344FCC18D122CE0043AD1B /* POISuggestionCell.h */,
+				49344FCD18D122CE0043AD1B /* POISuggestionCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -400,16 +405,17 @@
 			files = (
 				4FE4323D18AFDB1C00D06F9B /* LoginViewController.m in Sources */,
 				4FE4320A18AFD15700D06F9B /* AppDelegate.m in Sources */,
+				49344FCE18D122CE0043AD1B /* POISuggestionCell.m in Sources */,
 				4FE4324518AFE92C00D06F9B /* DestinationsTableViewController.m in Sources */,
 				4FE4324818AFE99800D06F9B /* TripManager.m in Sources */,
 				4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */,
 				4FE4320618AFD15700D06F9B /* main.m in Sources */,
 				4960277518CA8BC10065E9EC /* DestinationSearch.m in Sources */,
-				497FB22618C65FCC00D74309 /* POISuggestionViewController.m in Sources */,
 				4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */,
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
 				4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */,
 				49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */,
+				49344FCB18D121670043AD1B /* POISuggestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,5 +22,7 @@
 - (NSArray *) getDestinations;
 - (NSArray *) getOptimalPath;
 
+//POI related 
+
 
 @end
