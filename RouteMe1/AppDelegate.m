@@ -11,6 +11,8 @@
 
 #import "MasterViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -23,6 +25,14 @@
     // Override point for customization after application launch.
     
     _tripManager = [[TripManager alloc] init];
+
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x2d2d2d)];
+    [[UINavigationBar appearance] setTintColor:UIColorFromRGB(0x4ee6c7)];
+    [[UIView appearance] setTintColor:UIColorFromRGB(0x4ee6c7)];
+    [[UIButton appearance] setTintColor:UIColorFromRGB(0x4ee6c7)];
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
+    NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:UIColorFromRGB(0x4ee6c7), UITextAttributeTextColor, [UIColor whiteColor], UITextAttributeTextShadowColor, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 
     //Google API Key
     [GMSServices provideAPIKey:@"AIzaSyALlkTKco5knj1DCXMQYhH2xnkT4c9rHhM"];

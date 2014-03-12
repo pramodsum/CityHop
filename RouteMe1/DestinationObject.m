@@ -15,5 +15,4 @@
 @synthesize longitude = _longitude;
 @synthesize destID = _destID;
 
-
 @end

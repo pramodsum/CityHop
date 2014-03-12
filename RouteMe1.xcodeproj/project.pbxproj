@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		498AC87018BAB27700548A1E /* CitySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 498AC86F18BAB27700548A1E /* CitySearch.m */; };
+		4960277518CA8BC10065E9EC /* DestinationSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4960277418CA8BC10065E9EC /* DestinationSearch.m */; };
+		497FB22618C65FCC00D74309 /* POISuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497FB22518C65FCC00D74309 /* POISuggestionViewController.m */; };
 		498AC87218BAB3AB00548A1E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498AC87118BAB3AB00548A1E /* MapKit.framework */; };
-		49EE963B18BBA2690035F012 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */; };
+		49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */; };
 		49EE963D18BBF97F0035F012 /* ch_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EE963C18BBF97F0035F012 /* ch_bg.png */; };
 		49EE963F18BC1B400035F012 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE963E18BC1B400035F012 /* GoogleMaps.framework */; };
 		49EE964118BC1B810035F012 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE964018BC1B810035F012 /* AVFoundation.framework */; };
@@ -59,11 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		498AC86E18BAB27700548A1E /* CitySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySearch.h; sourceTree = "<group>"; };
-		498AC86F18BAB27700548A1E /* CitySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySearch.m; sourceTree = "<group>"; };
+		4960277318CA8BC10065E9EC /* DestinationSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearch.h; sourceTree = "<group>"; };
+		4960277418CA8BC10065E9EC /* DestinationSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearch.m; sourceTree = "<group>"; };
+		497FB22418C65FCC00D74309 /* POISuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionViewController.h; sourceTree = "<group>"; };
+		497FB22518C65FCC00D74309 /* POISuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionViewController.m; sourceTree = "<group>"; };
 		498AC87118BAB3AB00548A1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		49EE963918BBA2690035F012 /* DestinationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearchViewController.h; sourceTree = "<group>"; };
-		49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearchViewController.m; sourceTree = "<group>"; };
+		49B3C81C18BF7D8E009600A8 /* DestinationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearchViewController.h; sourceTree = "<group>"; };
+		49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearchViewController.m; sourceTree = "<group>"; };
 		49EE963C18BBF97F0035F012 /* ch_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ch_bg.png; sourceTree = "<group>"; };
 		49EE963E18BC1B400035F012 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../GoogleMaps-iOS-1.7.0/GoogleMaps.framework"; sourceTree = "<group>"; };
 		49EE964018BC1B810035F012 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4960276818CA58B30065E9EC /* DestinationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				49B3C81C18BF7D8E009600A8 /* DestinationSearchViewController.h */,
+				49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */,
+			);
+			name = DestinationSearch;
+			sourceTree = "<group>";
+		};
+		4960276918CA58BA0065E9EC /* POISearch */ = {
+			isa = PBXGroup;
+			children = (
+				497FB22418C65FCC00D74309 /* POISuggestionViewController.h */,
+				497FB22518C65FCC00D74309 /* POISuggestionViewController.m */,
+			);
+			name = POISearch;
+			sourceTree = "<group>";
+		};
 		4FE431EB18AFD15700D06F9B = {
 			isa = PBXGroup;
 			children = (
@@ -246,8 +267,8 @@
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
 				4FE4324918AFEA2200D06F9B /* DestinationObject.h */,
 				4FE4324A18AFEA2200D06F9B /* DestinationObject.m */,
-				498AC86E18BAB27700548A1E /* CitySearch.h */,
-				498AC86F18BAB27700548A1E /* CitySearch.m */,
+				4960277318CA8BC10065E9EC /* DestinationSearch.h */,
+				4960277418CA8BC10065E9EC /* DestinationSearch.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,8 +293,8 @@
 				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
 				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
 				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
-				49EE963918BBA2690035F012 /* DestinationSearchViewController.h */,
-				49EE963A18BBA2690035F012 /* DestinationSearchViewController.m */,
+				4960276818CA58B30065E9EC /* DestinationSearch */,
+				4960276918CA58BA0065E9EC /* POISearch */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -383,11 +404,12 @@
 				4FE4324818AFE99800D06F9B /* TripManager.m in Sources */,
 				4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */,
 				4FE4320618AFD15700D06F9B /* main.m in Sources */,
+				4960277518CA8BC10065E9EC /* DestinationSearch.m in Sources */,
+				497FB22618C65FCC00D74309 /* POISuggestionViewController.m in Sources */,
 				4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */,
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
-				498AC87018BAB27700548A1E /* CitySearch.m in Sources */,
 				4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */,
-				49EE963B18BBA2690035F012 /* DestinationSearchViewController.m in Sources */,
+				49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
