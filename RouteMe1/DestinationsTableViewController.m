@@ -33,7 +33,7 @@
     [super viewDidLoad];
     
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
+    [self.tableView setContentInset:UIEdgeInsetsMake(-66, 0, 0, 0)];
     
     // [self hideSearchBar];
 
@@ -44,9 +44,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
     [self.tableView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

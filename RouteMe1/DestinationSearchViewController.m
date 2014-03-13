@@ -40,6 +40,8 @@
     [searchbar setDelegate:self];
     [self.searchDisplayController setDelegate:self];
     tripManager = _appDelegate.tripManager;
+    
+    [searchbar becomeFirstResponder];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -112,6 +114,7 @@
         if (cities != nil) {
             [cities removeAllObjects];
         }
+        
         [self.tableView reloadData];
         return;
     }
@@ -124,7 +127,8 @@
 
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:googleRequestURL] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest: [[NSURLRequest alloc] initWithURL:googleRequestURL]
+                                       queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -147,6 +151,7 @@
             NSLog(@"ERROR: %@", error);
         }
     }];
+    
     [self.tableView reloadData];
 }
 
