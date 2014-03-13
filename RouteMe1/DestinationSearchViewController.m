@@ -10,6 +10,7 @@
 #import "POISuggestionViewController.h"
 #import "DestinationObject.h"
 #import "TripManager.h"
+#import "AppDelegate.h"
 
 @interface DestinationSearchViewController ()
 
@@ -22,6 +23,7 @@
 }
 
 @synthesize searchbar;
+@synthesize appDelegate = _appDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,11 +37,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [searchbar.delegate self];
-    [self.searchDisplayController.delegate self];
+    [searchbar setDelegate:self];
+    [self.searchDisplayController setDelegate:self];
+    tripManager = _appDelegate.tripManager;
 
     // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
+    // self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,11 +66,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"DestCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell; //  = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     if (cities != nil && [cities count] > indexPath.row) {
         NSDictionary *place= [cities objectAtIndex:indexPath.row];
         [cell.textLabel setText:[place objectForKey:@"description"]];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
 
     return cell;
@@ -79,12 +88,20 @@
     NSDictionary *place= [cities objectAtIndex:indexPath.row];
     city_name = [place objectForKey:@"description"];
     [tripManager addDestinationWithString:city_name];
+    if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
+        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }else{
+        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    
 
     //Prepare for Segue
+    /*
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     POISuggestionViewController *poi_controller;
     poi_controller.city = city_name;
     [[self navigationController] pushViewController:poi_controller animated:YES];
+     */
 }
 
 #pragma mark - Search

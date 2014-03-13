@@ -13,6 +13,7 @@
     long destIDCounter;
 }
 
+
 - (long) getDestIDCounter{
     if (destIDCounter == NULL) {
         destIDCounter = 0;
@@ -26,9 +27,11 @@
         destinations = [[NSMutableArray alloc] init];
     }
     
+    NSLog(@"Adding %@", name);
+    
     DestinationObject *d = [[DestinationObject alloc] init];
     [d setName:[name capitalizedString]];
-    [d setDestID:[NSNumber numberWithLong:[self getDestIDCounter]]];
+    [d setDestID: [[NSNumber alloc] initWithLong:[self getDestIDCounter]]]; // [NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:d];
     
     return [d destID];

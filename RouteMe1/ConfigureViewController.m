@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "DestinationsTableViewController.h"
 #import "POISuggestionViewController.h"
+#import "DestinationSearchViewController.h"
 
 @interface ConfigureViewController ()
 
@@ -90,6 +91,9 @@
         POISuggestionViewController *vc = (POISuggestionViewController *) [segue destinationViewController];
         [vc setDestinations:[appDelegate.tripManager getDestinations]];
         [vc setIndex:[NSNumber numberWithInt:0]];
+    }else if ([segueName isEqualToString:@"add_destinations_segue"]){
+        DestinationSearchViewController *vc = (DestinationSearchViewController *) [segue destinationViewController];
+        [vc setAppDelegate:appDelegate];
     }
     
 }

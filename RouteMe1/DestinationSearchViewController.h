@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface DestinationSearchViewController : UITableViewController <UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @end
