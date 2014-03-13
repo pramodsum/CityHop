@@ -64,9 +64,11 @@
 {
     static NSString *CellIdentifier = @"DestCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    NSDictionary *place= [cities objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[place objectForKey:@"description"]];
+    
+    if (cities != nil && [cities count] > indexPath.row) {
+        NSDictionary *place= [cities objectAtIndex:indexPath.row];
+        [cell.textLabel setText:[place objectForKey:@"description"]];
+    }
 
     return cell;
 }
@@ -89,11 +91,19 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    if (searchText == nil || [searchText isEqualToString:@""]) {
+        if (cities != nil) {
+            [cities removeAllObjects];
+        }
+        [self.tableView reloadData];
+        return;
+    }
+    
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
 
-    NSLog(@"And the url string is: %@", url);//caveman debuging
+    NSLog(@"And the url string is: %@", url); //caveman debuging
 
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
@@ -102,7 +112,14 @@
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSArray *places = [json objectForKey:@"predictions"];
-            cities = [[NSMutableArray alloc] init];
+            
+            
+            if (cities == nil){
+                cities = [[NSMutableArray alloc] init];
+            }else{
+                [cities removeAllObjects];
+            }
+            
 
             for (NSDictionary *place in places) {
                 [cities addObject:place];
