@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DestinationObject.h"
+#import "ActivityObject.h"
 
 @interface POISuggestionViewController : UITableViewController
 
-@property (retain) NSString *city;
-@property (strong, nonatomic) IBOutlet UISearchBar *filterbar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSString *city;
+
+@property (strong, nonatomic) NSArray *destinations;
+@property (strong, nonatomic) NSNumber *index;
 
 @end

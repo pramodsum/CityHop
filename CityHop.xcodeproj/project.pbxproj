@@ -45,7 +45,6 @@
 		4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */; };
 		4FE4324518AFE92C00D06F9B /* DestinationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */; };
 		4FE4324818AFE99800D06F9B /* TripManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324718AFE99800D06F9B /* TripManager.m */; };
-		4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE4324A18AFEA2200D06F9B /* DestinationObject.m */; };
 		4FEB075A18C3A19200AFB714 /* ActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */; };
 		4FEB075E18C3A49800AFB714 /* ActivityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB075D18C3A49800AFB714 /* ActivityObject.m */; };
 		4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */; };
@@ -62,8 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
-<<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 		49344FC918D121670043AD1B /* POISuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionViewController.h; sourceTree = "<group>"; };
 		49344FCA18D121670043AD1B /* POISuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestionViewController.m; sourceTree = "<group>"; };
 		49344FCC18D122CE0043AD1B /* POISuggestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestionCell.h; sourceTree = "<group>"; };
@@ -86,13 +83,7 @@
 		49EE965018BC1BB80035F012 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		49EE965218BC1BBF0035F012 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		49EE965418BC1BC70035F012 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4FE431F418AFD15700D06F9B /* RouteMe1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteMe1.app; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
 		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
-=======
-		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 		4FE431F718AFD15700D06F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FE431F918AFD15700D06F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4FE431FB18AFD15700D06F9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -119,8 +110,8 @@
 		4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationsTableViewController.m; sourceTree = "<group>"; };
 		4FE4324618AFE99800D06F9B /* TripManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripManager.h; sourceTree = "<group>"; };
 		4FE4324718AFE99800D06F9B /* TripManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripManager.m; sourceTree = "<group>"; };
-		4FE4324918AFEA2200D06F9B /* DestinationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationObject.h; sourceTree = "<group>"; };
-		4FE4324A18AFEA2200D06F9B /* DestinationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationObject.m; sourceTree = "<group>"; };
+		4FE4324918AFEA2200D06F9B /* DestinationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DestinationObject.h; path = "/Users/pramods/Documents/Box Documents/sumedha_dev1/RouteMe1/DestinationObject.h"; sourceTree = "<absolute>"; };
+		4FE4324A18AFEA2200D06F9B /* DestinationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DestinationObject.m; path = "/Users/pramods/Documents/Box Documents/sumedha_dev1/RouteMe1/DestinationObject.m"; sourceTree = "<absolute>"; };
 		4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesViewController.h; sourceTree = "<group>"; };
 		4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesViewController.m; sourceTree = "<group>"; };
 		4FEB075C18C3A49800AFB714 /* ActivityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityObject.h; sourceTree = "<group>"; };
@@ -246,16 +237,8 @@
 		4FE4320018AFD15700D06F9B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
-<<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				49EE963C18BBF97F0035F012 /* ch_bg.png */,
-				4FE4320118AFD15700D06F9B /* RouteMe1-Info.plist */,
-=======
 				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
-=======
-				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 				4FE4320218AFD15700D06F9B /* InfoPlist.strings */,
 				4FE4320518AFD15700D06F9B /* main.m */,
 				4FE4320718AFD15700D06F9B /* CityHop-Prefix.pch */,
@@ -288,18 +271,9 @@
 				4FE4320918AFD15700D06F9B /* AppDelegate.m */,
 				4FE4324618AFE99800D06F9B /* TripManager.h */,
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
-<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
-<<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
-				4FE4324918AFEA2200D06F9B /* DestinationObject.h */,
-				4FE4324A18AFEA2200D06F9B /* DestinationObject.m */,
 				4960277318CA8BC10065E9EC /* DestinationSearch.h */,
 				4960277418CA8BC10065E9EC /* DestinationSearch.m */,
-=======
 				4FEB075F18C3A4D600AFB714 /* Container Objects */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
-=======
-				4FEB075F18C3A4D600AFB714 /* Container Objects */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,17 +283,10 @@
 			children = (
 				4FEB075B18C3A41300AFB714 /* Cells */,
 				4FE4320B18AFD15700D06F9B /* Main_iPhone.storyboard */,
-<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
-<<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
-				4FE4320E18AFD15700D06F9B /* Main_iPad.storyboard */,
 				4FEC2D9218BA4E73001464B7 /* EditDestinationsCell.h */,
 				4FEC2D9318BA4E73001464B7 /* EditDestinationsCell.m */,
 				49344FCC18D122CE0043AD1B /* POISuggestionCell.h */,
 				49344FCD18D122CE0043AD1B /* POISuggestionCell.m */,
-=======
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
-=======
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -333,18 +300,12 @@
 				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
 				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
 				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
-<<<<<<< HEAD:CityHop.xcodeproj/project.pbxproj
-<<<<<<< HEAD:RouteMe1.xcodeproj/project.pbxproj
 				4960276818CA58B30065E9EC /* DestinationSearch */,
 				4960276918CA58BA0065E9EC /* POISearch */,
-=======
 				4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */,
 				4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
-=======
 				4FEB075818C3A19200AFB714 /* ActivitiesViewController.h */,
 				4FEB075918C3A19200AFB714 /* ActivitiesViewController.m */,
->>>>>>> origin/adam_dev1:CityHop.xcodeproj/project.pbxproj
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -479,7 +440,6 @@
 				4FEC2D9418BA4E73001464B7 /* EditDestinationsCell.m in Sources */,
 				4FEB075E18C3A49800AFB714 /* ActivityObject.m in Sources */,
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
-				4FE4324B18AFEA2200D06F9B /* DestinationObject.m in Sources */,
 				49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */,
 				49344FCB18D121670043AD1B /* POISuggestionViewController.m in Sources */,
 			);

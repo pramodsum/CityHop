@@ -9,7 +9,7 @@
 #import "ConfigureViewController.h"
 #import "AppDelegate.h"
 #import "DestinationsTableViewController.h"
-#import "ActivitiesViewController.h"
+#import "POISuggestionViewController.h"
 
 @interface ConfigureViewController ()
 
@@ -87,7 +87,7 @@
     if ([segueName isEqualToString: @"destination_container"]) {
         childController = (DestinationsTableViewController *) [segue destinationViewController];
     }else if ([segueName isEqualToString:@"select_activities_segue"]){
-        ActivitiesViewController *vc = (ActivitiesViewController *) [segue destinationViewController];
+        POISuggestionViewController *vc = (POISuggestionViewController *) [segue destinationViewController];
         [vc setDestinations:[appDelegate.tripManager getDestinations]];
         [vc setIndex:[NSNumber numberWithInt:0]];
     }
