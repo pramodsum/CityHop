@@ -104,7 +104,7 @@
     }
 
     // Configure the cell...
-    [cell.textLabel setText:[(ActivityObject *)[activitySuggestions objectAtIndex:indexPath.row] name]];
+    [cell.textLabel setText:[(POIObject *)[activitySuggestions objectAtIndex:indexPath.row] name]];
 
     return cell;
 }

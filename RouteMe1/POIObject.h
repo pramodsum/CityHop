@@ -1,17 +1,17 @@
 //
-//  ActivityObject.h
-//  RouteMe1
+//  POIObject.h
+//  CityHop
 //
-//  Created by Adam Oxner on 3/2/14.
+//  Created by Sumedha Pramod on 3/10/14.
 //  Copyright (c) 2014 University of Michigan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-// to be expanded...
-
-@interface ActivityObject : NSObject
+@interface POIObject : NSObject
 
 @property (strong, nonatomic) NSString *name;
+
+- (POIObject *) initWithObject:(NSDictionary *) obj;
 
 @end

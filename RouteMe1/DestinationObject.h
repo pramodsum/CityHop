@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "POIObject.h"
 
 @interface DestinationObject : NSObject
 
@@ -15,5 +16,7 @@
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *destID;
 @property (nonatomic, strong) NSMutableArray *activities;
+
+- (void) addVenue:(POIObject *) venue;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DestinationObject.h"
+#import "POIObject.h"
 
 @interface TripManager : NSObject
 
@@ -22,8 +23,10 @@
 - (NSArray *) getDestinations;
 - (NSArray *) getOptimalPath;
 
-//POI related 
-
-
+// Sumedha Pramod
+// POI related
+- (void) addVenueToDestinationFromAPI:(NSDictionary *)venue :(NSString *)destination;
+- (void) addVenueToDestination:(POIObject *)venue :(DestinationObject *)destination;
+- (void) addVenueToDestinationWithString:(POIObject *)venue :(NSString *)destination;
 
 @end

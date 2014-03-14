@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DestinationObject.h"
-#import "ActivityObject.h"
+#import "POIObject.h"
 
 @interface POISuggestionViewController : UITableViewController
 

@@ -16,4 +16,12 @@
 @synthesize destID = _destID;
 @synthesize activities = _activities;
 
+- (void) addVenue:(POIObject *) venue {
+    if (_activities == nil) {
+        _activities = [[NSMutableArray alloc] init];
+    }
+
+    [_activities addObject:venue];
+}
+
 @end

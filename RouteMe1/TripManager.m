@@ -67,14 +67,64 @@
     
 }
 
+- (BOOL) destinationAlreadySelected:(NSString *) name {
+    for(int i = 0; i < destinations.count; i++) {
+        if([destinations[i] valueForKey:name] == name)
+            return YES;
+    }
+    return NO;
+}
+
 // returns array of  destinations
 - (NSArray *) getDestinations{
     return destinations;
 }
 
 - (NSArray *) getOptimalPath{
-    
+
     return destinations;
+}
+
+- (NSInteger) destinationCount {
+    return destinations.count;
+}
+
+// POI RELATED
+- (void) addVenueToDestinationFromAPI:(NSDictionary *)venue :(NSString *)destination {
+    for (DestinationObject *d in destinations) {
+        if (d.name == destination) {
+            POIObject *poi = [[POIObject alloc] initWithObject:venue];
+            [d addVenue:poi];
+            return;
+        }
+    }
+    NSLog(@"Error: Destination has not been added to TripManager.");
+    return;
+}
+
+- (void) addVenueToDestination:(POIObject *)venue :(DestinationObject *)destination {
+    NSInteger index = [destinations indexOfObject:destination];
+
+    if(index == NSNotFound) {
+        NSLog(@"Error: Destination has not been added to TripManager.");
+        return;
+    }
+
+    POIObject *poi = [[POIObject alloc] init];
+    [destinations[index] addVenue:poi];
+}
+
+- (void) addVenueToDestinationWithString:(POIObject *)venue :(NSString *)destination {
+
+    for (DestinationObject *d in destinations) {
+        if (d.name == destination) {
+            POIObject *poi = [[POIObject alloc] init];
+            [d addVenue:poi];
+            return;
+        }
+    }
+    NSLog(@"Error: Destination has not been added to TripManager.");
+    return;
 }
 
 @end
