@@ -79,7 +79,7 @@
     NSArray *destinations = [appDelegate.tripManager getDestinations];
     if (destinations == nil) return 0;
     
-    NSLog(@"Count: %lu", (unsigned long)[destinations count]);
+    // NSLog(@"Count: %lu", (unsigned long)[destinations count]);
     return [destinations count];
 }
 
@@ -97,7 +97,7 @@
     
     [cell.textLabel
         setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
-    NSLog(@"destID: %@", [(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]);
+    // NSLog(@"destID: %@", [(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]);
     // not working...
     // [cell setDestID: [[NSNumber alloc] initWithLong:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]]]; //[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

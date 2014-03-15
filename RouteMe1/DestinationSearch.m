@@ -40,7 +40,7 @@
 }
 
 - (NSArray *) getCities {
-    NSLog(@"COUNT: %li", cities.count);
+    // NSLog(@"COUNT: %li", cities.count);
     return cities;
 }
 

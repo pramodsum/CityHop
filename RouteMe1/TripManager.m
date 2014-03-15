@@ -31,7 +31,7 @@
     NSLog(@"Adding %@", name);
     
     DestinationObject *d = [[DestinationObject alloc] init];
-    [d setName:[name capitalizedString]];
+    [d setName:name];
     [d setDestID: [[NSNumber alloc] initWithLong:[self getDestIDCounter]]]; // [NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:d];
     
