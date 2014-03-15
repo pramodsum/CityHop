@@ -51,7 +51,6 @@
         // optimize
         [appDelegate.tripManager getOptimalPath];
         
-        
         // segue
         [self performSegueWithIdentifier:@"select_activities_segue" sender:self];
     }else{
