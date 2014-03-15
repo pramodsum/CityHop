@@ -19,7 +19,7 @@
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
 
-    NSLog(@"And the url string is: %@", url);
+    // NSLog(@"And the url string is: %@", url);
 
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 

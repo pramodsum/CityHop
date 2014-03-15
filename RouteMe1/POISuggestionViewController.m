@@ -40,14 +40,14 @@
     }
 
 
-    [self.navigationItem setTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name];
+    [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
 
     if (_index.intValue < [_destinations count]-1) {
         // button for next city
 
         UIBarButtonItem *nextCityBtn =
         [[UIBarButtonItem alloc]
-         initWithTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name
+         initWithTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name componentsSeparatedByString:@","] objectAtIndex:0]
          style:UIBarButtonItemStylePlain
          target:self
          action:@selector(nextCity:)];

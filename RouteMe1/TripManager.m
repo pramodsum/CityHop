@@ -7,6 +7,7 @@
 //
 
 #import "TripManager.h"
+#import "RouteOptimizer.h"
 
 @implementation TripManager{
     NSMutableArray *destinations;
@@ -81,7 +82,10 @@
 }
 
 - (NSArray *) getOptimalPath{
-
+    RouteOptimizer *ro = [[RouteOptimizer alloc] init];
+    [ro setInputRoute:destinations];
+    destinations = (NSMutableArray *)[ro optimizedRoute];
+    
     return destinations;
 }
 
