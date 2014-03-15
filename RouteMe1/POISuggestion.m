@@ -7,7 +7,6 @@
 //
 
 #import "POISuggestion.h"
-#import "AppDelegate.h"
 
 @implementation POISuggestion {
     AppDelegate *appDelegate;
@@ -18,14 +17,20 @@
     return self;
 }
 
-- (void) getVenues:(NSString *) city {
+- (void) getVenues:(DestinationObject*) destination {
+    [self getVenuesWithCity:destination.name];
+}
+
+- (void) getVenuesWithCity:(NSString *) city {
+    appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     city = [city stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+//    NSLog(@"CITY: %@", city);
 
     NSString *FSclient_id = @"SCKLV2BWBLU5WABPVMCBX2V5N44H14FDWXNKIWQVXFKSLCAX",
              *FSclient_secret_key = @"SEQHGWOACYF13UDEZDFHF1QHH2RFOBEHMHE0TTHJ0L2ZTKNV";
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&near=%@&section=sights&sortByDistance=1", FSclient_id, FSclient_secret_key, city];
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=%@&client_secret=%@&v=20130815&near=%@&section=sights", FSclient_id, FSclient_secret_key, city];
 
-    NSLog(@"And the url string is: %@", url);
+//    NSLog(@"And the url string is: %@", url);
 
     NSURL *foursquareRequestURL = [NSURL URLWithString:url];
 
@@ -33,10 +38,11 @@
 
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            NSArray *venues = [json objectForKey:@"groups"];
+            NSArray *venues = [[[[json objectForKey:@"response"] objectForKey:@"groups"] firstObject] objectForKey:@"items"];
+//            NSLog(@"%@", venues);
 
             for (NSDictionary *venue in venues) {
-                NSLog(@"Venue: %@", venue);
+//                NSLog(@"Venue: %@", venue);
                 [appDelegate.tripManager addVenueToDestinationFromAPI:venue :city];
             }
 

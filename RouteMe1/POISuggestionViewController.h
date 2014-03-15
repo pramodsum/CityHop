@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "DestinationObject.h"
 #import "POIObject.h"
+#import "POISuggestionCell.h"
+#import "TripManager.h"
+#import "AppDelegate.h"
 
 @interface POISuggestionViewController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) NSString *city;
 
 @property (strong, nonatomic) NSArray *destinations;
 @property (strong, nonatomic) NSNumber *index;
+
+@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @end

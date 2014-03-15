@@ -10,7 +10,6 @@
 #import "POISuggestionViewController.h"
 #import "DestinationObject.h"
 #import "TripManager.h"
-#import "AppDelegate.h"
 
 @interface DestinationSearchViewController ()
 
@@ -87,23 +86,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Create DestinationObject and add to destination
-    NSDictionary *place= [cities objectAtIndex:indexPath.row];
-    city_name = [place objectForKey:@"description"];
-    [tripManager addDestinationWithString:city_name];
+    [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
     if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
     }else{
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
-    
-
-    //Prepare for Segue
-    /*
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    POISuggestionViewController *poi_controller;
-    poi_controller.city = city_name;
-    [[self navigationController] pushViewController:poi_controller animated:YES];
-     */
 }
 
 #pragma mark - Search
@@ -123,8 +111,6 @@
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
 
-    NSLog(@"And the url string is: %@", url); //caveman debuging
-
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
     [NSURLConnection sendAsynchronousRequest: [[NSURLRequest alloc] initWithURL:googleRequestURL]
@@ -133,19 +119,16 @@
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSArray *places = [json objectForKey:@"predictions"];
-            
-            
+
             if (cities == nil){
                 cities = [[NSMutableArray alloc] init];
             }else{
                 [cities removeAllObjects];
             }
-            
 
             for (NSDictionary *place in places) {
                 [cities addObject:place];
             }
-//            NSLog(@"Cities: %@", cities);
 
         } else {
             NSLog(@"ERROR: %@", error);

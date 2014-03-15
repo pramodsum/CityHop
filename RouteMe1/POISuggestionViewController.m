@@ -7,6 +7,7 @@
 //
 
 #import "POISuggestionViewController.h"
+#import "POISuggestion.h"
 
 @interface POISuggestionViewController ()
 
@@ -14,10 +15,13 @@
 
 @implementation POISuggestionViewController {
     NSMutableArray *activitySuggestions; // array for populating table
+    TripManager *tripManager;
+    DestinationObject *destination;
 }
 
 @synthesize index = _index;
 @synthesize destinations = _destinations;
+@synthesize appDelegate = _appDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,21 +37,25 @@
     [super viewDidLoad];
 
     [self hideSearchBar];
+    _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    tripManager = _appDelegate.tripManager;
+
+    // set destination
+    destination = (DestinationObject *)[_destinations objectAtIndex:_index.intValue];
 
     // initialize data
     if (activitySuggestions == nil) {
         activitySuggestions = [[NSMutableArray alloc] init];
     }
 
-
-    [self.navigationItem setTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name];
+    [self.navigationItem setTitle:destination.name];
 
     if (_index.intValue < [_destinations count]-1) {
         // button for next city
 
         UIBarButtonItem *nextCityBtn =
         [[UIBarButtonItem alloc]
-         initWithTitle:((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name
+         initWithTitle:destination.name
          style:UIBarButtonItemStylePlain
          target:self
          action:@selector(nextCity:)];
@@ -59,7 +67,11 @@
         // button for trip options
     }
 
-
+    // load venues
+    POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
+    [poiSuggestion getVenues:destination];
+    [self.tableView reloadData];
+    NSLog(@"Activity count: %li", [destination activitiesCount]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,14 +109,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    POISuggestionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
     // Configure the cell...
-    [cell.textLabel setText:[(POIObject *)[activitySuggestions objectAtIndex:indexPath.row] name]];
+    if([destination activitiesCount] == 0) {
+        [cell.destinationName setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
+    }
 
     return cell;
 }
