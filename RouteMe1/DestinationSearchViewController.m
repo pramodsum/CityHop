@@ -52,7 +52,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     refreshTimer = [NSTimer
-                    scheduledTimerWithTimeInterval:2.0f
+                    scheduledTimerWithTimeInterval:0.8f
                     target:self
                     selector:@selector(refreshResults)
                     userInfo:nil
@@ -104,6 +104,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [refreshTimer invalidate];
+    refreshTimer = nil;
+    
     //Create DestinationObject and add to destination
     NSDictionary *place= [cities objectAtIndex:indexPath.row];
     city_name = [place objectForKey:@"description"];
@@ -114,14 +117,6 @@
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
     
-
-    //Prepare for Segue
-    /*
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    POISuggestionViewController *poi_controller;
-    poi_controller.city = city_name;
-    [[self navigationController] pushViewController:poi_controller animated:YES];
-     */
 }
 
 #pragma mark - Search
@@ -135,6 +130,15 @@
         
         [self.tableView reloadData];
         return;
+    }
+    
+    if (refreshTimer == nil) {
+        refreshTimer = [NSTimer
+                        scheduledTimerWithTimeInterval:0.5f
+                        target:self
+                        selector:@selector(refreshResults)
+                        userInfo:nil
+                        repeats:YES];
     }
     
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
