@@ -49,10 +49,8 @@
     
     if ([appDelegate.tripManager getDestinations] != nil && [[appDelegate.tripManager getDestinations] count] > 0) {
         // optimize
-        NSArray *temp = [appDelegate.tripManager getOptimalPath];
-        while (temp == nil || temp.count == 0) {
-            // wait :(
-        }
+        [appDelegate.tripManager getOptimalPath];
+        
         
         // segue
         [self performSegueWithIdentifier:@"select_activities_segue" sender:self];

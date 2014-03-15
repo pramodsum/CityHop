@@ -29,7 +29,7 @@
         return _inputRoute;
     }
     
-    NSMutableArray *opRoute = [[NSMutableArray alloc] init];
+    NSMutableArray *opRoute = [[NSMutableArray alloc] initWithArray:_inputRoute];
     tempRoute = [[NSMutableArray alloc] initWithArray:_inputRoute]; // deep copy
     
     // going through each possible configuration (N-1)

@@ -84,8 +84,20 @@
 - (NSArray *) getOptimalPath{
     RouteOptimizer *ro = [[RouteOptimizer alloc] init];
     [ro setInputRoute:destinations];
-    destinations = (NSMutableArray *)[ro optimizedRoute];
+    NSMutableArray *temp = (NSMutableArray *)[ro optimizedRoute];
     
+    NSDate *d = [NSDate date];
+    while (temp == nil || temp.count == 0) {
+        // wait :(
+        
+        if ([d timeIntervalSinceNow] < -15.0f) {
+            // timeout
+            NSLog(@"ERROR: could not optimize path- timeout.");
+            return destinations;
+        }
+    }
+    
+    destinations = temp;
     return destinations;
 }
 
