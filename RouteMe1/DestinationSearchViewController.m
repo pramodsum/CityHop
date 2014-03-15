@@ -20,6 +20,7 @@
     NSString *city_name;
     NSMutableArray *cities;
     TripManager *tripManager;
+    NSTimer *refreshTimer;
 }
 
 @synthesize searchbar;
@@ -42,9 +43,26 @@
     tripManager = _appDelegate.tripManager;
     
     [searchbar becomeFirstResponder];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    refreshTimer = [NSTimer
+                    scheduledTimerWithTimeInterval:2.0f
+                    target:self
+                    selector:@selector(refreshResults)
+                    userInfo:nil
+                    repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [refreshTimer invalidate];
+    refreshTimer = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +170,10 @@
         }
     }];
     
+    [self.tableView reloadData];
+}
+
+- (void) refreshResults {
     [self.tableView reloadData];
 }
 
