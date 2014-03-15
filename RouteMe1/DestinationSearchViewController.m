@@ -49,20 +49,29 @@
     // self.clearsSelectionOnViewWillAppear = NO;
 }
 
+- (void)startRefreshTimer {
+    if (refreshTimer == nil) {
+        refreshTimer = [NSTimer
+                        scheduledTimerWithTimeInterval:0.5f
+                        target:self
+                        selector:@selector(refreshResults)
+                        userInfo:nil
+                        repeats:YES];
+    }
+}
+
+- (void)stopRefreshTimer {
+    [refreshTimer invalidate];
+    refreshTimer = nil;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    refreshTimer = [NSTimer
-                    scheduledTimerWithTimeInterval:0.8f
-                    target:self
-                    selector:@selector(refreshResults)
-                    userInfo:nil
-                    repeats:YES];
+    [self startRefreshTimer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [refreshTimer invalidate];
-    refreshTimer = nil;
+    [self stopRefreshTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,8 +113,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [refreshTimer invalidate];
-    refreshTimer = nil;
+    [self stopRefreshTimer];
     
     //Create DestinationObject and add to destination
     NSDictionary *place= [cities objectAtIndex:indexPath.row];
@@ -132,14 +140,7 @@
         return;
     }
     
-    if (refreshTimer == nil) {
-        refreshTimer = [NSTimer
-                        scheduledTimerWithTimeInterval:0.5f
-                        target:self
-                        selector:@selector(refreshResults)
-                        userInfo:nil
-                        repeats:YES];
-    }
+    [self startRefreshTimer];
     
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
