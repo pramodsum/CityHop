@@ -14,7 +14,6 @@
 @end
 
 @implementation POISuggestionViewController {
-    NSMutableArray *activitySuggestions; // array for populating table
     TripManager *tripManager;
     DestinationObject *destination;
 }
@@ -43,10 +42,6 @@
     // set destination
     destination = (DestinationObject *)[_destinations objectAtIndex:_index.intValue];
 
-    // initialize data
-    if (activitySuggestions == nil) {
-        activitySuggestions = [[NSMutableArray alloc] init];
-    }
 
     [self.navigationItem setTitle:destination.name];
 
@@ -101,9 +96,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (activitySuggestions == nil) {
-        // return 0;
-    }
 
     return [destination activitiesCount];
 }

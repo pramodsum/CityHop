@@ -35,7 +35,7 @@
     [d setDestID: [[NSNumber alloc] initWithLong:[self getDestIDCounter]]]; // [NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:d];
     
-    return [d destID];
+    return [[d destID] copy];
 }
 
 - (NSNumber *) addDestination:(DestinationObject *)destination{
@@ -46,7 +46,7 @@
     [destination setDestID:[NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:destination];
     
-    return [destination destID];
+    return [[destination destID] copy];
 }
 
 - (void) removeDestination:(DestinationObject *)destination{

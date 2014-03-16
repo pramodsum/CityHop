@@ -80,7 +80,7 @@
             
             // random pause
             NSDate *n = [NSDate date];
-            while ([n timeIntervalSinceNow] > -2/arc4random()) {
+            while ([n timeIntervalSinceNow] > -1*arc4random()%2) {
                    // do nothing
                 NSLog(@"waiting...");
             }

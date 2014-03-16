@@ -85,11 +85,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EditDestinationsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    EditDestinationsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditCell"];
 
     if (cell == nil){
         cell = [[EditDestinationsCell alloc]
-                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditCell"];
     }
     
     // Configure the cell...
@@ -99,7 +99,7 @@
         setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
     // NSLog(@"destID: %@", [(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]);
     // not working...
-    // [cell setDestID: [[NSNumber alloc] initWithLong:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]]]; //[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
+    [cell setDestID: [((DestinationObject *)[destinations objectAtIndex:indexPath.row]) destID]]; //[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
