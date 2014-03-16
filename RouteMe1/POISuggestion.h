@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 @interface POISuggestion : NSObject
 
-- (void) getVenues:(NSString *) city;
+- (void) getVenues:(DestinationObject*) destination;
+- (void) getVenuesWithCity:(NSString *) city;
 
 @end

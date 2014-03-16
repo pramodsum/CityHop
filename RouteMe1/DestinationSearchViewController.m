@@ -10,7 +10,6 @@
 #import "POISuggestionViewController.h"
 #import "DestinationObject.h"
 #import "TripManager.h"
-#import "AppDelegate.h"
 
 @interface DestinationSearchViewController ()
 
@@ -116,9 +115,7 @@
     [self stopRefreshTimer];
     
     //Create DestinationObject and add to destination
-    NSDictionary *place= [cities objectAtIndex:indexPath.row];
-    city_name = [place objectForKey:@"description"];
-    [tripManager addDestinationWithString:city_name];
+    [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
     if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
     }else{
@@ -156,19 +153,16 @@
         if (!error) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSArray *places = [json objectForKey:@"predictions"];
-            
-            
+
             if (cities == nil){
                 cities = [[NSMutableArray alloc] init];
             }else{
                 [cities removeAllObjects];
             }
-            
 
             for (NSDictionary *place in places) {
                 [cities addObject:place];
             }
-//            NSLog(@"Cities: %@", cities);
 
         } else {
             NSLog(@"ERROR: %@", error);

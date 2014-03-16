@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface POISuggestionCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *destinationName;
 
 @end

@@ -107,14 +107,19 @@
 
 // POI RELATED
 - (void) addVenueToDestinationFromAPI:(NSDictionary *)venue :(NSString *)destination {
+    
+    destination = [destination stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+
     for (DestinationObject *d in destinations) {
-        if (d.name == destination) {
+        if ([d.name isEqual:destination]) {
             POIObject *poi = [[POIObject alloc] initWithObject:venue];
+//            NSLog(@"poi: %@", poi);
             [d addVenue:poi];
+//            NSLog(@"%li", [d activitiesCount]);
             return;
         }
     }
-    NSLog(@"Error: Destination has not been added to TripManager.");
+    NSLog(@"Error: Venue has not been added to %@.", destination);
     return;
 }
 
@@ -122,7 +127,7 @@
     NSInteger index = [destinations indexOfObject:destination];
 
     if(index == NSNotFound) {
-        NSLog(@"Error: Destination has not been added to TripManager.");
+        NSLog(@"Error: Venue has not been added to Destination."); 
         return;
     }
 
@@ -132,14 +137,16 @@
 
 - (void) addVenueToDestinationWithString:(POIObject *)venue :(NSString *)destination {
 
-    for (DestinationObject *d in destinations) {
-        if (d.name == destination) {
+    destination = [destination stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+
+    for (int i = 0; i < destinations.count; i++) {
+        if ([[destinations objectAtIndex:i] objectForKey:@"name"] == destination) {
             POIObject *poi = [[POIObject alloc] init];
-            [d addVenue:poi];
+            [[destinations objectAtIndex:i] addVenue:poi];
             return;
         }
     }
-    NSLog(@"Error: Destination has not been added to TripManager.");
+    NSLog(@"Error: Venue has not been added to Destination.");
     return;
 }
 
