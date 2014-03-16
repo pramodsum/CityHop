@@ -46,6 +46,16 @@
     }
 
     [_selected_activities addObject:venue];
+    NSLog(@"The %@ was added to your %@ trip!", venue.name, _name);
+}
+
+- (void) sortVenues {
+    [activities sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"rating" ascending:NO]]];
+}
+
+- (NSArray*) getActivities {
+    [self sortVenues];
+    return activities;
 }
 
 @end

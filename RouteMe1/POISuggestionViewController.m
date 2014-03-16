@@ -15,7 +15,7 @@
 @end
 
 @implementation POISuggestionViewController {
-    NSMutableArray *activitySuggestions; // array for populating table
+    NSArray *activitySuggestions; // array for populating table
     TripManager *tripManager;
     DestinationObject *destination;
 }
@@ -48,6 +48,7 @@
     if (activitySuggestions == nil) {
         activitySuggestions = [[NSMutableArray alloc] init];
     }
+    activitySuggestions = [destination getActivities];
     
     [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
 
@@ -116,6 +117,7 @@
     POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
     [cell.activityName setText:[poi name]];
     [cell.activityAddress setText:[poi address]];
+    [cell.activityRating setText:[[poi rating] stringValue]];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
 

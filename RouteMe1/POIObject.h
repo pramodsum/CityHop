@@ -14,9 +14,13 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSNumber *distance;
-@property (strong, nonatomic) NSMutableArray *photos;
 @property (strong, nonatomic) NSString *imageURL;
+@property (strong, nonatomic) NSNumber *rating;
+@property (strong, nonatomic) NSNumber *likes;
+@property (strong, nonatomic) NSNumber *checkins;
+@property (strong, nonatomic) NSMutableArray *tags;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj;
+- (NSComparisonResult)compare:(POIObject *)otherObject;
 
 @end

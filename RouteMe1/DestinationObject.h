@@ -23,4 +23,9 @@
 - (NSInteger) activitiesCount;
 - (POIObject *) venueAtIndex:(NSInteger) index;
 - (void) selectVenue:(POIObject *) venue;
+- (void) sortVenues;
+
+// returns array of activities
+- (NSArray *) getActivities;
+
 @end

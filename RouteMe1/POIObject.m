@@ -14,8 +14,11 @@
 @synthesize name = _name;
 @synthesize address = _address;
 @synthesize distance = _distance;
-@synthesize photos = _photos;
 @synthesize imageURL = _imageURL;
+@synthesize rating = _rating;
+@synthesize likes = _likes;
+@synthesize checkins = _checkins;
+@synthesize tags = _tags;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj {
     _name = [[obj objectForKey:@"venue"] objectForKey:@"name"];
@@ -32,11 +35,25 @@
         _address = [NSString stringWithFormat:@"%@", [loc objectForKey:@"city"]];
     }
 
-//    NSLog(@"%@, %@, %@", _name, _address, _distance);
-
     //Images
     _venueID = [[obj objectForKey:@"venue"] objectForKey:@"id"];
     [self fetchImage];
+
+    _likes = [[[obj objectForKey:@"venue"]  objectForKey:@"likes"] objectForKey:@"count"];
+    _checkins = [[[obj objectForKey:@"venue"]  objectForKey:@"stats"] objectForKey:@"checkinsCount"];
+
+    //Rating
+    _rating = @([_likes integerValue] + [_checkins integerValue]);
+
+    //Tags
+    NSArray *categories = [[obj objectForKey:@"venue"] objectForKey:@"categories"];
+    for(NSDictionary *tag in categories) {
+//        NSLog(@"Tag: %@", tag);
+        [_tags addObject:[tag objectForKey:@"name"]];
+        [_tags addObject:[tag objectForKey:@"shortName"]];
+        [_tags addObject:[tag objectForKey:@"pluralName"]];
+    }
+//    NSLog(@"TAGS: %@", _tags);
 
     return self;
 }
@@ -44,7 +61,7 @@
 - (void) fetchImage {
     NSString *FSclient_id = @"SCKLV2BWBLU5WABPVMCBX2V5N44H14FDWXNKIWQVXFKSLCAX",
     *FSclient_secret_key = @"SEQHGWOACYF13UDEZDFHF1QHH2RFOBEHMHE0TTHJ0L2ZTKNV";
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=%@&client_secret=%@&v=20130815", _venueID, FSclient_id, FSclient_secret_key];
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=%@&client_secret=%@&v=20130815&limit=1", _venueID, FSclient_id, FSclient_secret_key];
 
     NSURL *foursquareRequestURL = [NSURL URLWithString:url];
 

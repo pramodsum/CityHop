@@ -11,6 +11,7 @@
 @interface POISuggestionCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *activityName;
 @property (strong, nonatomic) IBOutlet UILabel *activityAddress;
+@property (strong, nonatomic) IBOutlet UILabel *activityRating;
 @property (strong, nonatomic) IBOutlet UIImageView *activityImage;
 
 @end
