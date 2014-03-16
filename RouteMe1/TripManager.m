@@ -111,7 +111,7 @@
     NSInteger index = [destinations indexOfObject:destination];
 
     if(index == NSNotFound) {
-        NSLog(@"Error: Venue has not been added to Destination.");
+        NSLog(@"Error: Venue has not been added to Destination."); 
         return;
     }
 
