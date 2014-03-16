@@ -320,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="1728" y="64"/>
         </scene>
-        <!--Itinerary View Controller-->
+        <!--Itinerary View Controller - Itinerary-->
         <scene sceneID="gNO-Gn-DjI">
             <objects>
                 <viewController id="bhY-bC-DFR" customClass="ItineraryViewController" sceneMemberID="viewController">
@@ -347,7 +347,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rZn-O1-Nqb"/>
+                    <navigationItem key="navigationItem" title="Itinerary" id="rZn-O1-Nqb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nt-bq-rdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

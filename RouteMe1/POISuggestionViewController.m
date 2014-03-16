@@ -72,6 +72,11 @@
                                          target:self
                                          action:@selector(segueToItinerary)];
         [self.navigationItem setRightBarButtonItem:itineraryBtn];
+        
+        UIBarButtonItem *citiesBack = [[UIBarButtonItem alloc] initWithTitle:@"Activities" style:UIBarButtonItemStylePlain target:self action:nil];
+        [self.navigationItem setBackBarButtonItem:citiesBack];
+        
+        
     }
 }
 
