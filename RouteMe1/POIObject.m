@@ -23,7 +23,6 @@
 
     //Not parsed properly... fixing now
     NSDictionary *loc = [[obj objectForKey:@"venue"] objectForKey:@"location"];
-    NSLog(@"loc %@", loc);
     _distance = [loc objectForKey:@"distance"];
 
     if([loc objectForKey:@"address"]){
