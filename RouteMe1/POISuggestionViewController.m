@@ -64,7 +64,14 @@
         [self.navigationItem setRightBarButtonItem:nextCityBtn];
 
     }else{
-        // button for trip options
+        // button for itinerary
+        
+        UIBarButtonItem *itineraryBtn = [[UIBarButtonItem alloc]
+                                         initWithTitle:@"Done"
+                                         style:UIBarButtonItemStyleDone
+                                         target:self
+                                         action:@selector(segueToItinerary)];
+        [self.navigationItem setRightBarButtonItem:itineraryBtn];
     }
 }
 
@@ -74,6 +81,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 -(void)hideSearchBar{
     CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
     self.tableView.contentOffset = offset;
@@ -82,6 +91,10 @@
 - (void) nextCity:(id)sender
 {
     [self performSegueWithIdentifier:@"next_city_segue" sender:self];
+}
+
+- (void)segueToItinerary {
+    [self performSegueWithIdentifier:@"itinerary_segue" sender:self];
 }
 
 #pragma mark - Table view data source

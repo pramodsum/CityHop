@@ -42,6 +42,8 @@
 		49EE965518BC1BC70035F012 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE965418BC1BC70035F012 /* SystemConfiguration.framework */; };
 		4F0F979618D23166000EDFFC /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0F979518D23166000EDFFC /* GoogleMaps.framework */; };
 		4F0F979918D232FD000EDFFC /* DestinationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F979818D232FD000EDFFC /* DestinationObject.m */; };
+		4F390EFE18D6292500D1FA5F /* ItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F390EFD18D6292500D1FA5F /* ItineraryViewController.m */; };
+		4F390F0118D629AA00D1FA5F /* ItineraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F390F0018D629AA00D1FA5F /* ItineraryTableViewController.m */; };
 		4FA1283618D4A864008E65DA /* EditDestinationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283518D4A864008E65DA /* EditDestinationsCell.m */; };
 		4FA1283918D4AC90008E65DA /* RouteOptimizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283818D4AC90008E65DA /* RouteOptimizer.m */; };
 		4FE431F818AFD15700D06F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F718AFD15700D06F9B /* Foundation.framework */; };
@@ -133,6 +135,10 @@
 		4F0F979518D23166000EDFFC /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		4F0F979718D232FD000EDFFC /* DestinationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationObject.h; sourceTree = "<group>"; };
 		4F0F979818D232FD000EDFFC /* DestinationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationObject.m; sourceTree = "<group>"; };
+		4F390EFC18D6292500D1FA5F /* ItineraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryViewController.h; sourceTree = "<group>"; };
+		4F390EFD18D6292500D1FA5F /* ItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItineraryViewController.m; sourceTree = "<group>"; };
+		4F390EFF18D629AA00D1FA5F /* ItineraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryTableViewController.h; sourceTree = "<group>"; };
+		4F390F0018D629AA00D1FA5F /* ItineraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItineraryTableViewController.m; sourceTree = "<group>"; };
 		4FA1283418D4A864008E65DA /* EditDestinationsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDestinationsCell.h; sourceTree = "<group>"; };
 		4FA1283518D4A864008E65DA /* EditDestinationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDestinationsCell.m; sourceTree = "<group>"; };
 		4FA1283718D4AC90008E65DA /* RouteOptimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteOptimizer.h; sourceTree = "<group>"; };
@@ -267,6 +273,28 @@
 			name = ThirdParty;
 			sourceTree = "<group>";
 		};
+		4F390EFA18D628D400D1FA5F /* Destination input */ = {
+			isa = PBXGroup;
+			children = (
+				4FE4323E18AFDB4900D06F9B /* ConfigureViewController.h */,
+				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
+				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
+				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
+			);
+			name = "Destination input";
+			sourceTree = "<group>";
+		};
+		4F390EFB18D628F300D1FA5F /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				4F390EFC18D6292500D1FA5F /* ItineraryViewController.h */,
+				4F390EFD18D6292500D1FA5F /* ItineraryViewController.m */,
+				4F390EFF18D629AA00D1FA5F /* ItineraryTableViewController.h */,
+				4F390F0018D629AA00D1FA5F /* ItineraryTableViewController.m */,
+			);
+			name = Itinerary;
+			sourceTree = "<group>";
+		};
 		4FE431EB18AFD15700D06F9B = {
 			isa = PBXGroup;
 			children = (
@@ -386,12 +414,10 @@
 			children = (
 				4FE4323B18AFDB1C00D06F9B /* LoginViewController.h */,
 				4FE4323C18AFDB1C00D06F9B /* LoginViewController.m */,
-				4FE4323E18AFDB4900D06F9B /* ConfigureViewController.h */,
-				4FE4323F18AFDB4900D06F9B /* ConfigureViewController.m */,
-				4FE4324318AFE92C00D06F9B /* DestinationsTableViewController.h */,
-				4FE4324418AFE92C00D06F9B /* DestinationsTableViewController.m */,
+				4F390EFA18D628D400D1FA5F /* Destination input */,
 				4960276818CA58B30065E9EC /* DestinationSearch */,
 				4960276918CA58BA0065E9EC /* POISearch */,
+				4F390EFB18D628F300D1FA5F /* Itinerary */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -528,6 +554,7 @@
 				49344FCE18D122CE0043AD1B /* POISuggestionCell.m in Sources */,
 				4FE4324518AFE92C00D06F9B /* DestinationsTableViewController.m in Sources */,
 				4FE4324818AFE99800D06F9B /* TripManager.m in Sources */,
+				4F390F0118D629AA00D1FA5F /* ItineraryTableViewController.m in Sources */,
 				49BA4A5E18D5FE94002A67D6 /* UIImage+WebP.m in Sources */,
 				49BA4A5A18D5FE94002A67D6 /* SDWebImagePrefetcher.m in Sources */,
 				4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */,
@@ -545,6 +572,7 @@
 				4F0F979918D232FD000EDFFC /* DestinationObject.m in Sources */,
 				49BA4A5F18D5FE94002A67D6 /* UIImageView+WebCache.m in Sources */,
 				49BA4A5718D5FE94002A67D6 /* SDWebImageDownloader.m in Sources */,
+				4F390EFE18D6292500D1FA5F /* ItineraryViewController.m in Sources */,
 				49BA4A1A18D37EAD002A67D6 /* POIObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
