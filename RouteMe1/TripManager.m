@@ -150,4 +150,29 @@
     return;
 }
 
+- (void) selectVenueinDestination:(POIObject *) poi :(DestinationObject *) destination {
+    NSInteger index = [destinations indexOfObject:destination];
+
+    if(index == NSNotFound) {
+        NSLog(@"Error: Venue has not been added to Destination.");
+        return;
+    }
+    
+    [destinations[index] selectVenue:poi];
+}
+
+- (void) sortVenues:(NSString *) destination {
+
+    destination = [destination stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+
+    for (int i = 0; i < destinations.count; i++) {
+        if ([[destinations objectAtIndex:i] objectForKey:@"name"] == destination) {
+            [[destinations objectAtIndex:i] sortVenues];
+            return;
+        }
+    }
+    NSLog(@"Error: Destination not found.");
+    return;
+}
+
 @end

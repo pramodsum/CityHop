@@ -16,10 +16,16 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *destID;
+@property (nonatomic, strong) NSMutableArray *selected_activities;
 
 - (DestinationObject *) initObject:(NSDictionary *) place;
 - (void) addVenue:(POIObject *) venue;
 - (NSInteger) activitiesCount;
 - (POIObject *) venueAtIndex:(NSInteger) index;
+- (void) selectVenue:(POIObject *) venue;
+- (void) sortVenues;
+
+// returns array of activities
+- (NSArray *) getActivities;
 
 @end

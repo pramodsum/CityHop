@@ -26,7 +26,7 @@
 
     NSString *FSclient_id = @"SCKLV2BWBLU5WABPVMCBX2V5N44H14FDWXNKIWQVXFKSLCAX",
              *FSclient_secret_key = @"SEQHGWOACYF13UDEZDFHF1QHH2RFOBEHMHE0TTHJ0L2ZTKNV";
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=%@&client_secret=%@&v=20130815&near=%@&section=sights", FSclient_id, FSclient_secret_key, city];
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=%@&client_secret=%@&v=20130815&near=%@&section=sights&venuePhotos=1", FSclient_id, FSclient_secret_key, city];
 
 //    NSLog(@"%@", url);
 
@@ -42,7 +42,7 @@
 //                NSLog(@"Venue: %@", venue);
                 [appDelegate.tripManager addVenueToDestinationFromAPI:venue :city];
             }
-            NSLog(@"%li POIs found for destination.", venues.count);
+            NSLog(@"%lu POIs found for destination.", venues.count);
 
         } else {
             NSLog(@"ERROR: %@", error);

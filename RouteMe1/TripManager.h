@@ -12,8 +12,6 @@
 
 @interface TripManager : NSObject
 
-
-
 - (NSNumber *) addDestination:(DestinationObject *)destination;
 - (NSNumber *) addDestinationWithString:(NSString *)destination;
 - (void) removeDestination:(DestinationObject *)destination;
@@ -28,5 +26,7 @@
 - (void) addVenueToDestinationFromAPI:(NSDictionary *)venue :(NSString *)destination;
 - (void) addVenueToDestination:(POIObject *)venue :(DestinationObject *)destination;
 - (void) addVenueToDestinationWithString:(POIObject *)venue :(NSString *)destination;
+
+- (void) selectVenueinDestination:(POIObject *) poi :(DestinationObject *) destination;
 
 @end
