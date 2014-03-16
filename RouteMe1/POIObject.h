@@ -10,10 +10,12 @@
 
 @interface POIObject : NSObject
 
+@property (strong, nonatomic) NSString *venueID;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSNumber *distance;
 @property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) NSString *imageURL;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj;
 
