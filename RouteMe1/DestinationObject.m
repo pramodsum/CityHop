@@ -16,7 +16,6 @@
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
 @synthesize destID = _destID;
-//@synthesize activities = _activities;
 
 - (DestinationObject *) initObject:(NSDictionary *) place {
     _description = [place objectForKey:@"description"];

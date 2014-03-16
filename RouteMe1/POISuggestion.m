@@ -22,7 +22,6 @@
 }
 
 - (void) getVenuesWithCity:(NSString *) city {
-    appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     city = [city stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 //    NSLog(@"CITY: %@", city);
 

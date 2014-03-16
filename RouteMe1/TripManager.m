@@ -99,6 +99,7 @@
             POIObject *poi = [[POIObject alloc] initWithObject:venue];
 //            NSLog(@"poi: %@", poi);
             [d addVenue:poi];
+//            NSLog(@"%li", [d activitiesCount]);
             return;
         }
     }
