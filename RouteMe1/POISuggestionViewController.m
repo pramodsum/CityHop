@@ -117,17 +117,20 @@
     [cell.activityName setText:[poi name]];
     [cell.activityAddress setText:[poi address]];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
-    [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]]];
+    [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
     if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [tripManager selectVenueinDestination:poi :destination];
     }else{
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+//        [tripManager deselectVenueinDestination:poi :destination];
     }
 }
 

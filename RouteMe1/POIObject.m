@@ -54,9 +54,7 @@
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSDictionary *photo = [[[[json objectForKey:@"response"] objectForKey:@"photos"] objectForKey:@"items"] firstObject];
 //            NSLog(@"PHOTO: %@", photo);
-            NSString *prefix = [photo objectForKey:@"prefix"];
-            NSString *suffix = [photo objectForKey:@"suffix"];
-            _imageURL = [NSString stringWithFormat:@"%@320x100%@", prefix, suffix];
+            _imageURL = [NSString stringWithFormat:@"%@320x100%@", [photo objectForKey:@"prefix"], [photo objectForKey:@"suffix"]];
 //            NSLog(@"imageURL: %@", _imageURL);
 
         } else {

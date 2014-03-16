@@ -150,4 +150,15 @@
     return;
 }
 
+- (void) selectVenueinDestination:(POIObject *) poi :(DestinationObject *) destination {
+    NSInteger index = [destinations indexOfObject:destination];
+
+    if(index == NSNotFound) {
+        NSLog(@"Error: Venue has not been added to Destination.");
+        return;
+    }
+    
+    [destinations[index] selectVenue:poi];
+}
+
 @end
