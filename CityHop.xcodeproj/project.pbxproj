@@ -275,13 +275,10 @@
 				4FE4320918AFD15700D06F9B /* AppDelegate.m */,
 				4FE4324618AFE99800D06F9B /* TripManager.h */,
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
-<<<<<<< HEAD
-=======
 				4960277318CA8BC10065E9EC /* DestinationSearch.h */,
 				4960277418CA8BC10065E9EC /* DestinationSearch.m */,
 				4FA1283718D4AC90008E65DA /* RouteOptimizer.h */,
 				4FA1283818D4AC90008E65DA /* RouteOptimizer.m */,
->>>>>>> adam_dev3
 				49BA4A1B18D37EEE002A67D6 /* POISuggestion.h */,
 				49BA4A1C18D37EEE002A67D6 /* POISuggestion.m */,
 				4FEB075F18C3A4D600AFB714 /* Container Objects */,

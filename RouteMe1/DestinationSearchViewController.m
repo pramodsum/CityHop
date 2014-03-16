@@ -121,10 +121,6 @@
     }else{
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> adam_dev3
 }
 
 #pragma mark - Search
@@ -145,12 +141,6 @@
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
-
-<<<<<<< HEAD
-=======
-    // NSLog(@"And the url string is: %@", url); //caveman debuging
-
->>>>>>> adam_dev3
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
     [NSURLConnection sendAsynchronousRequest: [[NSURLRequest alloc] initWithURL:googleRequestURL]
