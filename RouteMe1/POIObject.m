@@ -47,13 +47,12 @@
 
     //Tags
     NSArray *categories = [[obj objectForKey:@"venue"] objectForKey:@"categories"];
+    _tags = [[NSMutableArray alloc] init];
     for(NSDictionary *tag in categories) {
-//        NSLog(@"Tag: %@", tag);
         [_tags addObject:[tag objectForKey:@"name"]];
         [_tags addObject:[tag objectForKey:@"shortName"]];
         [_tags addObject:[tag objectForKey:@"pluralName"]];
     }
-//    NSLog(@"TAGS: %@", _tags);
 
     return self;
 }

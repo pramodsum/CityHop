@@ -21,6 +21,5 @@
 @property (strong, nonatomic) NSMutableArray *tags;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj;
-- (NSComparisonResult)compare:(POIObject *)otherObject;
 
 @end

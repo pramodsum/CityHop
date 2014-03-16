@@ -16,13 +16,16 @@
 
 @implementation POISuggestionViewController {
     NSArray *activitySuggestions; // array for populating table
+    NSMutableArray* filteredTableData;
     TripManager *tripManager;
     DestinationObject *destination;
+    BOOL isFiltered;
 }
 
 @synthesize index = _index;
 @synthesize destinations = _destinations;
 @synthesize appDelegate = _appDelegate;
+@synthesize searchBar = _searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,6 +43,7 @@
     [self hideSearchBar];
     _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     tripManager = _appDelegate.tripManager;
+    isFiltered = FALSE;
 
     // init destination
     destination = (DestinationObject *)[_destinations objectAtIndex:_index.intValue];
@@ -70,6 +74,8 @@
     }else{
         // button for trip options
     }
+
+    _searchBar.delegate = (id)self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,10 +103,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (activitySuggestions == nil) {
-        // return 0;
+    if(isFiltered) {
+        return [filteredTableData count];
     }
-
     return [destination activitiesCount];
 }
 
@@ -114,7 +119,14 @@
         cell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-    POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    POIObject *poi;
+    if(isFiltered) {
+        poi = [filteredTableData objectAtIndex:indexPath.row];
+    }
+    else {
+        poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    }
+
     [cell.activityName setText:[poi name]];
     [cell.activityAddress setText:[poi address]];
     [cell.activityRating setText:[[poi rating] stringValue]];
@@ -126,7 +138,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    POIObject *poi;
+    if(isFiltered) {
+        poi = [filteredTableData objectAtIndex:indexPath.row];
+    }
+    else {
+        poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    }
+
     if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
         [tripManager selectVenueinDestination:poi :destination];
@@ -146,6 +165,47 @@
         [vc setDestinations:_destinations];
         [vc setIndex:[NSNumber numberWithInt:_index.intValue+1]];
     }
+}
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
+{
+    NSLog(@"Searching for activities matching %@", text);
+    if(text.length == 0)
+    {
+        isFiltered = FALSE;
+    }
+    else
+    {
+        isFiltered = TRUE;
+        if (filteredTableData) {
+            [filteredTableData removeAllObjects];
+        }
+        else {
+            filteredTableData = [[NSMutableArray alloc] init];
+        }
+
+        for (POIObject* poi in activitySuggestions)
+        {
+            NSRange nameRange = [poi.name rangeOfString:text options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound || [poi.name rangeOfString:text].location != NSNotFound)
+            {
+                [filteredTableData addObject:poi];
+            }
+            else {
+                NSRange tagRange;
+                for(NSString *tag in poi.tags) {
+                    tagRange = [tag rangeOfString:text options:NSCaseInsensitiveSearch];
+                    if(tagRange.location != NSNotFound|| [tag rangeOfString:text].location != NSNotFound) {
+                        [filteredTableData addObject:poi];
+                        break;
+                    }
+                }
+            }
+        }
+        NSLog(@"%i activities found for %@", [filteredTableData count], text);
+    }
+
+    [self.tableView reloadData];
 }
 
 @end
