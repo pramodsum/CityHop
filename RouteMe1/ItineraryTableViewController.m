@@ -9,6 +9,9 @@
 #import "ItineraryTableViewController.h"
 #import "AppDelegate.h"
 #import "ItineraryMasterCell.h"
+#import "POISuggestionCell.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+
 
 @interface ItineraryTableViewController ()
 
@@ -76,13 +79,26 @@
         }
         
         [cell1.cityLabel setText:((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).name];
+        [cell1.activitiesLabel setText:[NSString stringWithFormat:@"%lu activities planned.", (unsigned long)((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).selected_activities.count]];
         
         cell = cell1;
     }else{
         // child cell
+        
+        POISuggestionCell *cell2 = [self.tableView dequeueReusableCellWithIdentifier:@"POICell"];
+        if (cell2 == nil) {
+            cell2 = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"POICell"];
+        }
+        
+        POIObject *poi = (POIObject *)[((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) venueAtIndex:indexPath.row-1];
+        [cell2.activityName setText:[poi name]];
+        [cell2.activityAddress setText:[poi address]];
+        [cell2.activityRating setText:[[poi rating] stringValue]];
+        [cell2 setAccessoryType:UITableViewCellAccessoryNone];
+        [cell2.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
+        
+        cell = cell2;
     }
-    
-    // Configure the cell...
     
     return cell;
 }

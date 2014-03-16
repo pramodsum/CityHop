@@ -15,6 +15,7 @@
 @end
 
 @implementation POISuggestionViewController {
+    NSArray *activitySuggestions; // array for populating table
     TripManager *tripManager;
     DestinationObject *destination;
 }

@@ -48,6 +48,7 @@
 		4F390F0418D62FEF00D1FA5F /* ItineraryMasterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F390F0318D62FEF00D1FA5F /* ItineraryMasterCell.m */; };
 		4FA1283618D4A864008E65DA /* EditDestinationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283518D4A864008E65DA /* EditDestinationsCell.m */; };
 		4FA1283918D4AC90008E65DA /* RouteOptimizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283818D4AC90008E65DA /* RouteOptimizer.m */; };
+		4FB42A8E18D64ADE00AD622D /* ItineraryChildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB42A8D18D64ADE00AD622D /* ItineraryChildCell.m */; };
 		4FE431F818AFD15700D06F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F718AFD15700D06F9B /* Foundation.framework */; };
 		4FE431FA18AFD15700D06F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F918AFD15700D06F9B /* CoreGraphics.framework */; };
 		4FE431FC18AFD15700D06F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431FB18AFD15700D06F9B /* UIKit.framework */; };
@@ -148,6 +149,8 @@
 		4FA1283518D4A864008E65DA /* EditDestinationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDestinationsCell.m; sourceTree = "<group>"; };
 		4FA1283718D4AC90008E65DA /* RouteOptimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteOptimizer.h; sourceTree = "<group>"; };
 		4FA1283818D4AC90008E65DA /* RouteOptimizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteOptimizer.m; sourceTree = "<group>"; };
+		4FB42A8C18D64ADE00AD622D /* ItineraryChildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryChildCell.h; sourceTree = "<group>"; };
+		4FB42A8D18D64ADE00AD622D /* ItineraryChildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItineraryChildCell.m; sourceTree = "<group>"; };
 		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE431F718AFD15700D06F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FE431F918AFD15700D06F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -437,6 +440,8 @@
 				49344FCD18D122CE0043AD1B /* POISuggestionCell.m */,
 				4F390F0218D62FEF00D1FA5F /* ItineraryMasterCell.h */,
 				4F390F0318D62FEF00D1FA5F /* ItineraryMasterCell.m */,
+				4FB42A8C18D64ADE00AD622D /* ItineraryChildCell.h */,
+				4FB42A8D18D64ADE00AD622D /* ItineraryChildCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				49BA4A5E18D5FE94002A67D6 /* UIImage+WebP.m in Sources */,
 				49BA4A5A18D5FE94002A67D6 /* SDWebImagePrefetcher.m in Sources */,
 				4FE4324018AFDB4900D06F9B /* ConfigureViewController.m in Sources */,
+				4FB42A8E18D64ADE00AD622D /* ItineraryChildCell.m in Sources */,
 				4FA1283618D4A864008E65DA /* EditDestinationsCell.m in Sources */,
 				4FE4320618AFD15700D06F9B /* main.m in Sources */,
 				49BA4A5518D5FE94002A67D6 /* SDWebImageCompat.m in Sources */,

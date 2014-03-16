@@ -343,7 +343,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2u-6o-His">
-                                <rect key="frame" x="0.0" y="235" width="320" height="333"/>
+                                <rect key="frame" x="0.0" y="226" width="320" height="342"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -358,6 +358,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Itinerary" id="rZn-O1-Nqb"/>
+                    <connections>
+                        <outlet property="mapView" destination="kG0-Sk-ktZ" id="6g6-j9-Yzz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nt-bq-rdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,7 +371,7 @@
             <objects>
                 <tableViewController id="v94-yU-NqY" customClass="ItineraryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="K3i-D0-HMx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="333"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="342"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
