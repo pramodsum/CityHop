@@ -19,6 +19,7 @@
 
 @implementation ItineraryTableViewController{
     AppDelegate *appDelegate;
+    NSMutableDictionary *expandedSections;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -36,6 +37,7 @@
     
     [self.tableView setContentInset:UIEdgeInsetsMake(-66, 0, 0, 0)];
     appDelegate = [[UIApplication sharedApplication] delegate];
+    expandedSections = [[NSMutableDictionary alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,15 +62,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    NSString *key = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)section]];
+    NSNumber *isExpanded = [expandedSections valueForKey:key];
+    
+    // check if expanded
+    if (isExpanded == nil || isExpanded.intValue == 0) {
+        // not expanded
+        return 1;
+    }else{
+        // expanded
+        return [((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:section]) selected_activities].count +1;
+    }
+    
+    
+    return -1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UITableViewCell *cell = nil;
     if (indexPath.row == 0) {
         // master cell
@@ -85,9 +98,11 @@
     }else{
         // child cell
         
-        POISuggestionCell *cell2 = [self.tableView dequeueReusableCellWithIdentifier:@"POICell"];
+        
+        POISuggestionCell *cell2 = [self.tableView dequeueReusableCellWithIdentifier:@"POICell1"];
         if (cell2 == nil) {
-            cell2 = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"POICell"];
+            NSLog(@"building child cell");
+            cell2 = [[POISuggestionCell alloc] init];
         }
         
         POIObject *poi = (POIObject *)[((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) venueAtIndex:indexPath.row-1];
@@ -101,6 +116,37 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        // expand/collapse
+        [self.tableView beginUpdates];
+        
+        NSString *key = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)indexPath.section]];
+        NSNumber *isExpanded = [expandedSections valueForKey:key];
+        
+        NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+        for (int i=0; i<[((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) selected_activities].count; ++i) {
+            [tmpArray addObject:[NSIndexPath indexPathForRow:i+1 inSection:indexPath.section]];
+        }
+        
+        // check if expanded
+        if (isExpanded == nil || isExpanded.intValue == 0) {
+            // not expanded; expand
+            [expandedSections setValue:[NSNumber numberWithInt:1] forKey:key];
+            [self.tableView insertRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }else{
+            // expanded; collapse
+            [expandedSections setValue:[NSNumber numberWithInt:0] forKey:key];
+            [self.tableView deleteRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        
+        [self.tableView endUpdates];
+    }
+    
+    [self.tableView reloadData];
 }
 
 
