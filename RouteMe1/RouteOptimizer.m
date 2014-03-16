@@ -80,7 +80,7 @@
             
             // random pause
             NSDate *n = [NSDate date];
-            while ([n timeIntervalSinceNow] > -1/arc4random()) {
+            while ([n timeIntervalSinceNow] > -2/arc4random()) {
                    // do nothing
                 NSLog(@"waiting...");
             }
@@ -110,11 +110,11 @@
                 
                 // if this trip is the shortest, take note
                 NSLog(@"Total duration: %@", trip_time);
-                if (trip_time.intValue < currentBestRouteTime.intValue || currentBestRouteTime == nil) {
+                if (currentBestRouteTime == nil || trip_time.intValue < currentBestRouteTime.intValue) {
                     NSLog(@"...found new best route");
                     currentBestRouteJSON = [data copy];
                     currentBestRouteTime = [trip_time copy];
-                    NSLog(@"goddam start ADDRESS FUCK: %@", (NSString *)[[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"start_address"]);
+                    NSLog(@"START ADDRESS: %@", (NSString *)[[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"start_address"]);
                 }
                 
                 
@@ -139,9 +139,6 @@
         NSArray *routes = [json objectForKey:@"routes"];
         NSArray *legs = [[routes objectAtIndex:0] objectForKey:@"legs"];
         NSString *start_address = (NSString *)[[legs objectAtIndex:0] objectForKey:@"start_address"];
-        
-        NSLog(@"start_address: %@", start_address);
-        NSLog(@"rotated: %@", ((DestinationObject *)[rotated objectAtIndex:0]).name);
         
         if ( [[[start_address componentsSeparatedByString:@","] objectAtIndex:0]
               isEqualToString: [[((DestinationObject *)[rotated objectAtIndex:0]).name componentsSeparatedByString:@","] objectAtIndex:0] ] ) {

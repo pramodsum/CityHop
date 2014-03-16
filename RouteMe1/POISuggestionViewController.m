@@ -48,6 +48,11 @@
         activitySuggestions = [[NSMutableArray alloc] init];
     }
 
+<<<<<<< HEAD
+=======
+    [self.navigationItem setTitle:destination.name];
+
+>>>>>>> adam_dev3
     [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
 
     if (_index.intValue < [_destinations count]-1) {
@@ -100,15 +105,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (activitySuggestions == nil) {
-        return 0;
+        // return 0;
     }
 
-    return [activitySuggestions count];
+    return [destination activitiesCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    
+    /*
     POISuggestionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
@@ -116,9 +123,16 @@
     }
 
     // Configure the cell...
-    if([destination activitiesCount] == 0) {
+    // if([destination activitiesCount] == 0) {
         [cell.destinationName setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
+     
+     */
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    [cell.textLabel setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
 
     return cell;
 }
