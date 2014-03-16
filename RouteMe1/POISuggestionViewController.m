@@ -53,7 +53,7 @@
         activitySuggestions = [[NSMutableArray alloc] init];
     }
     activitySuggestions = [destination getActivities];
-    
+
     [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
 
     self.tableView.scrollEnabled = YES;
@@ -72,7 +72,19 @@
         [self.navigationItem setRightBarButtonItem:nextCityBtn];
 
     }else{
-        // button for trip options
+        // button for itinerary
+        
+        UIBarButtonItem *itineraryBtn = [[UIBarButtonItem alloc]
+                                         initWithTitle:@"Done"
+                                         style:UIBarButtonItemStyleDone
+                                         target:self
+                                         action:@selector(segueToItinerary)];
+        [self.navigationItem setRightBarButtonItem:itineraryBtn];
+        
+        UIBarButtonItem *citiesBack = [[UIBarButtonItem alloc] initWithTitle:@"Activities" style:UIBarButtonItemStylePlain target:self action:nil];
+        [self.navigationItem setBackBarButtonItem:citiesBack];
+        
+        
     }
 
     _searchBar.delegate = (id)self;
@@ -84,6 +96,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 -(void)hideSearchBar{
     CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
     self.tableView.contentOffset = offset;
@@ -92,6 +106,10 @@
 - (void) nextCity:(id)sender
 {
     [self performSegueWithIdentifier:@"next_city_segue" sender:self];
+}
+
+- (void)segueToItinerary {
+    [self performSegueWithIdentifier:@"itinerary_segue" sender:self];
 }
 
 #pragma mark - Table view data source

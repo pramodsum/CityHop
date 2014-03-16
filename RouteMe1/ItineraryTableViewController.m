@@ -1,23 +1,22 @@
 //
-//  DestinationsTableViewController.m
-//  RouteMe1
+//  ItineraryTableViewController.m
+//  CityHop
 //
-//  Created by Adam Oxner on 2/15/14.
+//  Created by Adam Oxner on 3/16/14.
 //  Copyright (c) 2014 University of Michigan. All rights reserved.
 //
 
-#import "DestinationsTableViewController.h"
+#import "ItineraryTableViewController.h"
 #import "AppDelegate.h"
-#import "EditDestinationsCell.h"
+#import "ItineraryMasterCell.h"
 
-@interface DestinationsTableViewController ()
+@interface ItineraryTableViewController ()
 
 @end
 
-@implementation DestinationsTableViewController{
+@implementation ItineraryTableViewController{
     AppDelegate *appDelegate;
 }
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,25 +31,15 @@
 {
     [super viewDidLoad];
     
-    appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [self.tableView setContentInset:UIEdgeInsetsMake(-66, 0, 0, 0)];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     
-    // [self hideSearchBar];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    
-    [self.tableView reloadData];
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,87 +47,94 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void)hideSearchBar{
-    CGPoint offset = CGPointMake(0, self.searchBar.frame.size.height);
-    self.tableView.contentOffset = offset;
-}
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [appDelegate.tripManager getDestinations].count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSArray *destinations = [appDelegate.tripManager getDestinations];
-    if (destinations == nil) return 0;
-    
-    // NSLog(@"Count: %lu", (unsigned long)[destinations count]);
-    return [destinations count];
+    return 1;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EditDestinationsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditCell"];
-
-    if (cell == nil){
-        cell = [[EditDestinationsCell alloc]
-                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditCell"];
+    
+    UITableViewCell *cell = nil;
+    if (indexPath.row == 0) {
+        // master cell
+        
+        ItineraryMasterCell *cell1 = [self.tableView dequeueReusableCellWithIdentifier:@"itinMasterCell"];
+        if (cell1 == nil) {
+            cell1 = [[ItineraryMasterCell alloc] init];
+        }
+        
+        [cell1.cityLabel setText:((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).name];
+        
+        cell = cell1;
+    }else{
+        // child cell
     }
     
     // Configure the cell...
-    NSArray *destinations = [appDelegate.tripManager getDestinations];
-    
-    [cell.textLabel
-        setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
-    // NSLog(@"destID: %@", [(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]);
-    // not working...
-    [cell setDestID: [((DestinationObject *)[destinations objectAtIndex:indexPath.row]) destID]]; //[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;
 }
 
 
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
 
-
+/*
 // Override to support editing the table view.
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [appDelegate.tripManager
-            removeDestinationByID:[(EditDestinationsCell *)
-                                   [tableView cellForRowAtIndexPath:indexPath] destID]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        
     }   
 }
- 
+*/
 
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
 
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
 
-
-
+/*
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
-
+*/
 
 @end
