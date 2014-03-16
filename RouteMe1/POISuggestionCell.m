@@ -10,7 +10,7 @@
 
 @implementation POISuggestionCell
 
-@synthesize imageView, destinationName;
+@synthesize activityName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
