@@ -19,6 +19,7 @@
     NSString *city_name;
     NSMutableArray *cities;
     TripManager *tripManager;
+    NSTimer *refreshTimer;
 }
 
 @synthesize searchbar;
@@ -41,9 +42,35 @@
     tripManager = _appDelegate.tripManager;
     
     [searchbar becomeFirstResponder];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)startRefreshTimer {
+    if (refreshTimer == nil) {
+        refreshTimer = [NSTimer
+                        scheduledTimerWithTimeInterval:0.5f
+                        target:self
+                        selector:@selector(refreshResults)
+                        userInfo:nil
+                        repeats:YES];
+    }
+}
+
+- (void)stopRefreshTimer {
+    [refreshTimer invalidate];
+    refreshTimer = nil;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self startRefreshTimer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self stopRefreshTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +112,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self stopRefreshTimer];
+    
     //Create DestinationObject and add to destination
     [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
     if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
@@ -92,6 +121,10 @@
     }else{
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> adam_dev3
 }
 
 #pragma mark - Search
@@ -107,10 +140,17 @@
         return;
     }
     
+    [self startRefreshTimer];
+    
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
 
+<<<<<<< HEAD
+=======
+    // NSLog(@"And the url string is: %@", url); //caveman debuging
+
+>>>>>>> adam_dev3
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
     [NSURLConnection sendAsynchronousRequest: [[NSURLRequest alloc] initWithURL:googleRequestURL]
@@ -135,6 +175,10 @@
         }
     }];
     
+    [self.tableView reloadData];
+}
+
+- (void) refreshResults {
     [self.tableView reloadData];
 }
 

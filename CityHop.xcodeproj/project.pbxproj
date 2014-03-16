@@ -29,6 +29,7 @@
 		4F0F979618D23166000EDFFC /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0F979518D23166000EDFFC /* GoogleMaps.framework */; };
 		4F0F979918D232FD000EDFFC /* DestinationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F979818D232FD000EDFFC /* DestinationObject.m */; };
 		4FA1283618D4A864008E65DA /* EditDestinationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283518D4A864008E65DA /* EditDestinationsCell.m */; };
+		4FA1283918D4AC90008E65DA /* RouteOptimizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1283818D4AC90008E65DA /* RouteOptimizer.m */; };
 		4FE431F818AFD15700D06F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F718AFD15700D06F9B /* Foundation.framework */; };
 		4FE431FA18AFD15700D06F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431F918AFD15700D06F9B /* CoreGraphics.framework */; };
 		4FE431FC18AFD15700D06F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE431FB18AFD15700D06F9B /* UIKit.framework */; };
@@ -91,6 +92,8 @@
 		4F0F979818D232FD000EDFFC /* DestinationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationObject.m; sourceTree = "<group>"; };
 		4FA1283418D4A864008E65DA /* EditDestinationsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDestinationsCell.h; sourceTree = "<group>"; };
 		4FA1283518D4A864008E65DA /* EditDestinationsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDestinationsCell.m; sourceTree = "<group>"; };
+		4FA1283718D4AC90008E65DA /* RouteOptimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteOptimizer.h; sourceTree = "<group>"; };
+		4FA1283818D4AC90008E65DA /* RouteOptimizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteOptimizer.m; sourceTree = "<group>"; };
 		4FE431F418AFD15700D06F9B /* CityHop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityHop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FE431F718AFD15700D06F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FE431F918AFD15700D06F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -272,6 +275,13 @@
 				4FE4320918AFD15700D06F9B /* AppDelegate.m */,
 				4FE4324618AFE99800D06F9B /* TripManager.h */,
 				4FE4324718AFE99800D06F9B /* TripManager.m */,
+<<<<<<< HEAD
+=======
+				4960277318CA8BC10065E9EC /* DestinationSearch.h */,
+				4960277418CA8BC10065E9EC /* DestinationSearch.m */,
+				4FA1283718D4AC90008E65DA /* RouteOptimizer.h */,
+				4FA1283818D4AC90008E65DA /* RouteOptimizer.m */,
+>>>>>>> adam_dev3
 				49BA4A1B18D37EEE002A67D6 /* POISuggestion.h */,
 				49BA4A1C18D37EEE002A67D6 /* POISuggestion.m */,
 				4FEB075F18C3A4D600AFB714 /* Container Objects */,
@@ -436,6 +446,7 @@
 				49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */,
 				49BA4A1D18D37EEE002A67D6 /* POISuggestion.m in Sources */,
 				49344FCB18D121670043AD1B /* POISuggestionViewController.m in Sources */,
+				4FA1283918D4AC90008E65DA /* RouteOptimizer.m in Sources */,
 				4F0F979918D232FD000EDFFC /* DestinationObject.m in Sources */,
 				49BA4A1A18D37EAD002A67D6 /* POIObject.m in Sources */,
 			);

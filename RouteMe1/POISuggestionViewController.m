@@ -48,14 +48,23 @@
         activitySuggestions = [[NSMutableArray alloc] init];
     }
 
+<<<<<<< HEAD
     [self.navigationItem setTitle:destination.name];
+=======
+
+    [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
+>>>>>>> adam_dev3
 
     if (_index.intValue < [_destinations count]-1) {
         // button for next city
 
         UIBarButtonItem *nextCityBtn =
         [[UIBarButtonItem alloc]
+<<<<<<< HEAD
          initWithTitle:destination.name
+=======
+         initWithTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name componentsSeparatedByString:@","] objectAtIndex:0]
+>>>>>>> adam_dev3
          style:UIBarButtonItemStylePlain
          target:self
          action:@selector(nextCity:)];

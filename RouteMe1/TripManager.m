@@ -7,6 +7,7 @@
 //
 
 #import "TripManager.h"
+#import "RouteOptimizer.h"
 
 @implementation TripManager{
     NSMutableArray *destinations;
@@ -30,7 +31,7 @@
     NSLog(@"Adding %@", name);
     
     DestinationObject *d = [[DestinationObject alloc] init];
-    [d setName:[name capitalizedString]];
+    [d setName:name];
     [d setDestID: [[NSNumber alloc] initWithLong:[self getDestIDCounter]]]; // [NSNumber numberWithLong:[self getDestIDCounter]]];
     [destinations addObject:d];
     
@@ -81,7 +82,22 @@
 }
 
 - (NSArray *) getOptimalPath{
-
+    RouteOptimizer *ro = [[RouteOptimizer alloc] init];
+    [ro setInputRoute:destinations];
+    NSMutableArray *temp = (NSMutableArray *)[ro optimizedRoute];
+    
+    NSDate *d = [NSDate date];
+    while (temp == nil || temp.count == 0) {
+        // wait :(
+        
+        if ([d timeIntervalSinceNow] < -15.0f) {
+            // timeout
+            NSLog(@"ERROR: could not optimize path- timeout.");
+            return destinations;
+        }
+    }
+    
+    destinations = temp;
     return destinations;
 }
 

@@ -48,6 +48,10 @@
 - (void)doneButtonSelected:(id)sender{
     
     if ([appDelegate.tripManager getDestinations] != nil && [[appDelegate.tripManager getDestinations] count] > 0) {
+        // optimize
+        [appDelegate.tripManager getOptimalPath];
+        
+        // segue
         [self performSegueWithIdentifier:@"select_activities_segue" sender:self];
     }else{
         [[UIAlertView alloc]
