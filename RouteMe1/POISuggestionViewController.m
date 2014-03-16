@@ -40,20 +40,17 @@
     _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     tripManager = _appDelegate.tripManager;
 
-    // set destination
+    // init destination
     destination = (DestinationObject *)[_destinations objectAtIndex:_index.intValue];
 
     // initialize data
     if (activitySuggestions == nil) {
         activitySuggestions = [[NSMutableArray alloc] init];
     }
-
-<<<<<<< HEAD
-=======
-    [self.navigationItem setTitle:destination.name];
-
->>>>>>> adam_dev3
+    
     [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
+
+    self.tableView.scrollEnabled = YES;
 
     if (_index.intValue < [_destinations count]-1) {
         // button for next city
@@ -71,12 +68,6 @@
     }else{
         // button for trip options
     }
-
-    // load venues
-    POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
-    [poiSuggestion getVenues:destination];
-    [self.tableView reloadData];
-    NSLog(@"Activity count: %li", [destination activitiesCount]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,28 +104,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    /*
+    static NSString *CellIdentifier = @"POICell";
+
     POISuggestionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
         cell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-
-    // Configure the cell...
-    // if([destination activitiesCount] == 0) {
-        [cell.destinationName setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
-     
-     */
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    [cell.textLabel setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
+    [cell.activityName setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
+    NSLog(@"POI%li: %@", indexPath.row, [(POIObject *)[destination venueAtIndex:indexPath.row] name]);
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
+        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }else{
+        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+    }
 }
 
 #pragma mark - Navigation

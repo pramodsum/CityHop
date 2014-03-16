@@ -10,6 +10,7 @@
 #import "POISuggestionViewController.h"
 #import "DestinationObject.h"
 #import "TripManager.h"
+#import "POISuggestion.h"
 
 @interface DestinationSearchViewController ()
 
@@ -121,10 +122,13 @@
     }else{
         [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> adam_dev3
+
+    NSLog(@"%@ added to itinerary.", [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"]);
+
+    NSString *city = [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"];
+
+    POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
+    [poiSuggestion getVenuesWithCity: city];
 }
 
 #pragma mark - Search
@@ -145,12 +149,6 @@
     NSString *kGOOGLEAPIKEY = @"AIzaSyDIsJnliy1sZ04e_vR3rEkvKC-eR07ULX4";
     searchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=(cities)&sensor=false&key=%@", searchText, kGOOGLEAPIKEY];
-<<<<<<< HEAD
-=======
-
-    // NSLog(@"And the url string is: %@", url); //caveman debuging
-
->>>>>>> adam_dev3
     NSURL *googleRequestURL = [NSURL URLWithString:url];
 
     [NSURLConnection sendAsynchronousRequest: [[NSURLRequest alloc] initWithURL:googleRequestURL]

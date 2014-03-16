@@ -40,6 +40,7 @@
 //                NSLog(@"Venue: %@", venue);
                 [appDelegate.tripManager addVenueToDestinationFromAPI:venue :city];
             }
+            NSLog(@"%li POIs found for destination.", venues.count);
 
         } else {
             NSLog(@"ERROR: %@", error);
