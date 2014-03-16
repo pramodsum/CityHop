@@ -8,6 +8,7 @@
 
 #import "POISuggestionViewController.h"
 #import "POISuggestion.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface POISuggestionViewController ()
 
@@ -111,10 +112,12 @@
     if (cell == nil) {
         cell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    [cell.activityName setText:[(POIObject *)[destination venueAtIndex:indexPath.row] name]];
-    NSLog(@"POI%li: %@", indexPath.row, [(POIObject *)[destination venueAtIndex:indexPath.row] name]);
+
+    POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    [cell.activityName setText:[poi name]];
+    [cell.activityAddress setText:[poi address]];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
+    [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]]];
 
     return cell;
 }

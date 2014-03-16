@@ -28,6 +28,8 @@
              *FSclient_secret_key = @"SEQHGWOACYF13UDEZDFHF1QHH2RFOBEHMHE0TTHJ0L2ZTKNV";
     NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=%@&client_secret=%@&v=20130815&near=%@&section=sights", FSclient_id, FSclient_secret_key, city];
 
+//    NSLog(@"%@", url);
+
     NSURL *foursquareRequestURL = [NSURL URLWithString:url];
 
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:foursquareRequestURL] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
