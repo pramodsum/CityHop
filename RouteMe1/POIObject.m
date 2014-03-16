@@ -20,13 +20,14 @@
     _name = [_name stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 
     //Not parsed properly... fixing now
-    NSDictionary *loc = [obj objectForKey:@"location"];
+    NSDictionary *loc = [[obj objectForKey:@"venue"] objectForKey:@"location"];
+//    NSLog(@"loc %@", loc);
     _distance = [loc objectForKey:@"distance"];
     _address = [_address stringByAppendingFormat:@"%@ %@, %@, %@", [loc objectForKey:@"address"], [loc objectForKey:@"city"], [loc objectForKey:@"state"], [loc objectForKey:@"country"]];
 
     //Images
 
-//    NSLog(@"%@, %@, %@", _name, _address, _distance);
+    NSLog(@"%@, %@, %@", _name, _address, _distance);
 
     return self;
 }
