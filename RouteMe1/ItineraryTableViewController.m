@@ -7,12 +7,16 @@
 //
 
 #import "ItineraryTableViewController.h"
+#import "AppDelegate.h"
+#import "ItineraryMasterCell.h"
 
 @interface ItineraryTableViewController ()
 
 @end
 
-@implementation ItineraryTableViewController
+@implementation ItineraryTableViewController{
+    AppDelegate *appDelegate;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +32,7 @@
     [super viewDidLoad];
     
     [self.tableView setContentInset:UIEdgeInsetsMake(-66, 0, 0, 0)];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,28 +51,42 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [appDelegate.tripManager getDestinations].count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    UITableViewCell *cell = nil;
+    if (indexPath.row == 0) {
+        // master cell
+        
+        ItineraryMasterCell *cell1 = [self.tableView dequeueReusableCellWithIdentifier:@"itinMasterCell"];
+        if (cell1 == nil) {
+            cell1 = [[ItineraryMasterCell alloc] init];
+        }
+        
+        [cell1.cityLabel setText:((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).name];
+        
+        cell = cell1;
+    }else{
+        // child cell
+    }
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
