@@ -13,6 +13,7 @@
 		49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */; };
 		49BA4A1A18D37EAD002A67D6 /* POIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA4A1918D37EAD002A67D6 /* POIObject.m */; };
 		49BA4A1D18D37EEE002A67D6 /* POISuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA4A1C18D37EEE002A67D6 /* POISuggestion.m */; };
+		49BA4A2118D5D63C002A67D6 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 49BA4A2018D5D63C002A67D6 /* cell.png */; };
 		49EE963D18BBF97F0035F012 /* ch_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EE963C18BBF97F0035F012 /* ch_bg.png */; };
 		49EE964118BC1B810035F012 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE964018BC1B810035F012 /* AVFoundation.framework */; };
 		49EE964318BC1B880035F012 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE964218BC1B880035F012 /* CoreLocation.framework */; };
@@ -72,6 +73,7 @@
 		49BA4A1918D37EAD002A67D6 /* POIObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIObject.m; sourceTree = "<group>"; };
 		49BA4A1B18D37EEE002A67D6 /* POISuggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISuggestion.h; sourceTree = "<group>"; };
 		49BA4A1C18D37EEE002A67D6 /* POISuggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISuggestion.m; sourceTree = "<group>"; };
+		49BA4A2018D5D63C002A67D6 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
 		49EE963C18BBF97F0035F012 /* ch_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ch_bg.png; sourceTree = "<group>"; };
 		49EE964018BC1B810035F012 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		49EE964218BC1B880035F012 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -235,6 +237,7 @@
 		4FE4320018AFD15700D06F9B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49BA4A2018D5D63C002A67D6 /* cell.png */,
 				49EE963C18BBF97F0035F012 /* ch_bg.png */,
 				4FE4320118AFD15700D06F9B /* CityHop-Info.plist */,
 				4FE4320218AFD15700D06F9B /* InfoPlist.strings */,
@@ -399,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FE4321B18AFD15800D06F9B /* Images.xcassets in Resources */,
+				49BA4A2118D5D63C002A67D6 /* cell.png in Resources */,
 				4FE4320D18AFD15700D06F9B /* Main_iPhone.storyboard in Resources */,
 				4FE4320418AFD15700D06F9B /* InfoPlist.strings in Resources */,
 				49EE963D18BBF97F0035F012 /* ch_bg.png in Resources */,
