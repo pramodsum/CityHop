@@ -147,7 +147,8 @@
 
     [cell.activityName setText:[poi name]];
     [cell.activityAddress setText:[poi address]];
-    [cell.activityRating setText:[[poi rating] stringValue]];
+//    [cell.activityRating setText:[[poi rating] stringValue]];
+    [cell.activityRating setText:[poi price]];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
 
@@ -220,7 +221,7 @@
                 }
             }
         }
-        NSLog(@"%i activities found for %@", [filteredTableData count], text);
+        NSLog(@"%lu activities found for %@", (unsigned long)[filteredTableData count], text);
     }
 
     [self.tableView reloadData];

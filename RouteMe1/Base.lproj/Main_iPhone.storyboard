@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -293,13 +293,22 @@
                                             <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgh-nv-ef5">
+                                            <rect key="frame" x="265" y="12" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.25098040699958801" green="0.79861427919708028" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="activityAddress" destination="Qta-RU-9kY" id="Yw7-va-ohy"/>
                                     <outlet property="activityImage" destination="ZmC-29-Uzp" id="ovV-2p-sj8"/>
                                     <outlet property="activityName" destination="uhe-0H-QTL" id="K0o-xd-6bt"/>
-                                    <outlet property="activityRating" destination="d3o-r4-oyC" id="Biw-Zc-xbE"/>
+                                    <outlet property="activityRating" destination="Dgh-nv-ef5" id="eFQ-f3-zGH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
