@@ -90,7 +90,7 @@
     while (temp == nil || temp.count == 0) {
         // wait :(
         
-        if ([d timeIntervalSinceNow] < -15.0f) {
+        if ([d timeIntervalSinceNow] < -10.0f) {
             // timeout
             NSLog(@"ERROR: could not optimize path- timeout.");
             return destinations;
@@ -112,10 +112,10 @@
 
     for (DestinationObject *d in destinations) {
         if ([d.name isEqual:destination]) {
+            
             POIObject *poi = [[POIObject alloc] initWithObject:venue];
-//            NSLog(@"poi: %@", poi);
             [d addVenue:poi];
-//            NSLog(@"%li", [d activitiesCount]);
+            
             return;
         }
     }

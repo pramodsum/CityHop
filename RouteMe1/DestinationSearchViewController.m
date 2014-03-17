@@ -129,6 +129,8 @@
 
     POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
     [poiSuggestion getVenuesWithCity: city];
+    
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 }
 
 #pragma mark - Search
