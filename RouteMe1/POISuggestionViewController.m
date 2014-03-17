@@ -54,7 +54,7 @@
     }
     activitySuggestions = [destination getActivities];
 
-    [self.navigationItem setTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue]).name componentsSeparatedByString:@","] objectAtIndex:0]];
+    [self.navigationItem setTitle:destination.name];
 
     self.tableView.scrollEnabled = YES;
 
