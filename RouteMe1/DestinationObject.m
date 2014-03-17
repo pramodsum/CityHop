@@ -58,4 +58,12 @@
     return activities;
 }
 
+- (NSArray *) getSelectedActivities {
+    return _selected_activities;
+}
+
+- (NSInteger) SelectedActivitiesCount {
+    return [_selected_activities count];
+}
+
 @end

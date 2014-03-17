@@ -96,7 +96,7 @@
     NSArray *destinations = [appDelegate.tripManager getDestinations];
     
     [cell.textLabel
-        setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] name]];
+        setText:[(DestinationObject *)[destinations objectAtIndex:indexPath.row] description]];
     // NSLog(@"destID: %@", [(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]);
     // not working...
     [cell setDestID: [((DestinationObject *)[destinations objectAtIndex:indexPath.row]) destID]]; //[(DestinationObject *)[destinations objectAtIndex:indexPath.row] destID]];

@@ -21,32 +21,40 @@
 @synthesize tags = _tags;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj {
-    _name = [[obj objectForKey:@"venue"] objectForKey:@"name"];
-    _name = [_name stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+    NSDictionary *venue = [obj objectForKey:@"venue"];
+    _name = [[venue objectForKey:@"name"]
+             stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 
-    //Not parsed properly... fixing now
-    NSDictionary *loc = [[obj objectForKey:@"venue"] objectForKey:@"location"];
+    //Address
+    NSDictionary *loc = [venue objectForKey:@"location"];
     _distance = [loc objectForKey:@"distance"];
 
     if([loc objectForKey:@"address"]){
-        _address = [NSString stringWithFormat:@"%@, %@", [loc objectForKey:@"address"], [loc objectForKey:@"city"]];
+        _address = [NSString stringWithFormat:@"%@, %@",
+                    [loc objectForKey:@"address"],
+                    [loc objectForKey:@"city"]];
     }
     else {
         _address = [NSString stringWithFormat:@"%@", [loc objectForKey:@"city"]];
     }
 
     //Images
-    _venueID = [[obj objectForKey:@"venue"] objectForKey:@"id"];
-    [self fetchImage];
-
-    _likes = [[[obj objectForKey:@"venue"]  objectForKey:@"likes"] objectForKey:@"count"];
-    _checkins = [[[obj objectForKey:@"venue"]  objectForKey:@"stats"] objectForKey:@"checkinsCount"];
+    _venueID = [venue objectForKey:@"id"];
+    NSDictionary *photo = [[[[[venue
+                               objectForKey:@"photos"]
+                              objectForKey:@"groups"] firstObject]
+                            objectForKey:@"items"] firstObject];
+    _imageURL = [NSString stringWithFormat:@"%@320x100%@",
+                 [photo objectForKey:@"prefix"],
+                 [photo objectForKey:@"suffix"]];
 
     //Rating
+    _likes = [[venue objectForKey:@"likes"] objectForKey:@"count"];
+    _checkins = [[venue objectForKey:@"stats"] objectForKey:@"checkinsCount"];
     _rating = @([_likes integerValue] + [_checkins integerValue]);
 
     //Tags
-    NSArray *categories = [[obj objectForKey:@"venue"] objectForKey:@"categories"];
+    NSArray *categories = [venue objectForKey:@"categories"];
     _tags = [[NSMutableArray alloc] init];
     for(NSDictionary *tag in categories) {
         [_tags addObject:[tag objectForKey:@"name"]];
@@ -55,28 +63,6 @@
     }
 
     return self;
-}
-
-- (void) fetchImage {
-    NSString *FSclient_id = @"SCKLV2BWBLU5WABPVMCBX2V5N44H14FDWXNKIWQVXFKSLCAX",
-    *FSclient_secret_key = @"SEQHGWOACYF13UDEZDFHF1QHH2RFOBEHMHE0TTHJ0L2ZTKNV";
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/%@/photos?client_id=%@&client_secret=%@&v=20130815&limit=1", _venueID, FSclient_id, FSclient_secret_key];
-
-    NSURL *foursquareRequestURL = [NSURL URLWithString:url];
-
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:foursquareRequestURL] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-        if (!error) {
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            NSDictionary *photo = [[[[json objectForKey:@"response"] objectForKey:@"photos"] objectForKey:@"items"] firstObject];
-//            NSLog(@"PHOTO: %@", photo);
-            _imageURL = [NSString stringWithFormat:@"%@320x100%@", [photo objectForKey:@"prefix"], [photo objectForKey:@"suffix"]];
-//            NSLog(@"imageURL: %@", _imageURL);
-
-        } else {
-            NSLog(@"ERROR: %@", error);
-        };
-    }];
 }
 
 @end

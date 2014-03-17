@@ -20,12 +20,14 @@
 
 - (DestinationObject *) initObject:(NSDictionary *) place;
 - (void) addVenue:(POIObject *) venue;
-- (NSInteger) activitiesCount;
 - (POIObject *) venueAtIndex:(NSInteger) index;
 - (void) selectVenue:(POIObject *) venue;
 - (void) sortVenues;
 
 // returns array of activities
 - (NSArray *) getActivities;
+- (NSInteger) activitiesCount;
+- (NSArray *) getSelectedActivities;
+- (NSInteger) SelectedActivitiesCount;
 
 @end
