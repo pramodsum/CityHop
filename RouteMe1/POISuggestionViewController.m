@@ -87,7 +87,26 @@
         
     }
 
+    //Searchbar
     _searchBar.delegate = (id)self;
+
+    //Change search button in keyboard
+    for(UIView *subView in [_searchBar subviews]) {
+        if([subView conformsToProtocol:@protocol(UITextInputTraits)]) {
+            [(UITextField *)subView setReturnKeyType: UIReturnKeyDone];
+        } else {
+            for(UIView *subSubView in [subView subviews]) {
+                if([subSubView conformsToProtocol:@protocol(UITextInputTraits)]) {
+                    [(UITextField *)subSubView setReturnKeyType: UIReturnKeyDone];
+                }
+            }
+        }
+    }
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

@@ -40,7 +40,7 @@
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     
-    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
     [self.navigationItem setRightBarButtonItem:doneBtn];
     
 }
@@ -59,7 +59,7 @@
         [self performSegueWithIdentifier:@"select_activities_segue" sender:self];
     }else{
         [[UIAlertView alloc]
-            initWithTitle:@"Umm where are you going" message:@"Please enter at least one destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
+            initWithTitle:@"Umm where are you going" message:@"Please select at least one destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
     }
     
 }
