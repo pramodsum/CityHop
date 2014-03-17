@@ -43,14 +43,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clearBlur.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkw-48-GEn">
-                                <rect key="frame" x="0.0" y="95" width="320" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clearBlur.png" translatesAutoresizingMaskIntoConstraints="NO" id="qE5-A5-if8">
-                                <rect key="frame" x="0.0" y="518" width="320" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cityhop_transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="38s-aw-7Rd">
                                 <rect key="frame" x="-9" y="116" width="332" height="148"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,7 +505,6 @@
         <image name="cell.png" width="296" height="99"/>
         <image name="ch_bg.png" width="640" height="1136"/>
         <image name="cityhop_transparent.png" width="1440" height="648"/>
-        <image name="clearBlur.png" width="320" height="200"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -521,7 +512,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="6NV-JC-y8h"/>
         <segue reference="ua6-js-1MZ"/>
-        <segue reference="vMd-Bi-clN"/>
     </inferredMetricsTieBreakers>
 </document>
