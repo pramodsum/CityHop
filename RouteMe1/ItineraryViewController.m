@@ -7,12 +7,15 @@
 //
 
 #import "ItineraryViewController.h"
+#import "AppDelegate.h"
 
 @interface ItineraryViewController ()
 
 @end
 
-@implementation ItineraryViewController
+@implementation ItineraryViewController{
+    AppDelegate *appDelegate;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,9 +30,55 @@
 {
     [super viewDidLoad];
     
-    // [self.mapView setDelegate:self];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     
     
+    for (DestinationObject *d in [appDelegate.tripManager getDestinations]) {
+        [self plotDestinationOnMap:d];
+    }
+    
+    
+    
+    
+}
+
+- (void)plotDestinationOnMap: (DestinationObject *)dest{
+    NSString *location = [dest description];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:location
+                 completionHandler:^(NSArray* placemarks, NSError* error){
+                     if (placemarks && placemarks.count > 0) {
+                         CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                         MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                         
+                         [self.mapView addAnnotation:placemark];
+                         [self zoomToFitMapAnnotations];
+                     }
+                 }
+     ];
+}
+
+- (void)zoomToFitMapAnnotations {
+    
+    if ([self.mapView.annotations count] == 0) return;
+    
+    int i = 0;
+    MKMapPoint points[[self.mapView.annotations count]];
+    
+    //build array of annotation points
+    for (id<MKAnnotation> annotation in [self.mapView annotations])
+        points[i++] = MKMapPointForCoordinate(annotation.coordinate);
+    
+    MKPolygon *poly = [MKPolygon polygonWithPoints:points count:i];
+    
+    // zoom out 20%
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect([poly boundingMapRect]);
+    MKCoordinateSpan span;
+    span.latitudeDelta= region.span.latitudeDelta *1.2;
+    span.longitudeDelta= region.span.longitudeDelta *1.2;
+    region.span=span;
+    
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
