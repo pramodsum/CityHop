@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *activitiesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *expandCollapseLabel;
 
 @end

@@ -98,14 +98,13 @@
     }else{
         // child cell
         
-        
         POISuggestionCell *cell2 = [self.tableView dequeueReusableCellWithIdentifier:@"POICell1"];
         if (cell2 == nil) {
             NSLog(@"building child cell");
             cell2 = [[POISuggestionCell alloc] init];
         }
         
-        POIObject *poi = (POIObject *)[((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) venueAtIndex:indexPath.row-1];
+        POIObject *poi = (POIObject *)[[((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) selected_activities] objectAtIndex:indexPath.row-1];
         [cell2.activityName setText:[poi name]];
         [cell2.activityAddress setText:[poi address]];
         [cell2.activityRating setText:[[poi rating] stringValue]];
@@ -135,10 +134,16 @@
         // check if expanded
         if (isExpanded == nil || isExpanded.intValue == 0) {
             // not expanded; expand
+            ItineraryMasterCell *cell = (ItineraryMasterCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            [cell.expandCollapseLabel setText:@"^"];
+            
             [expandedSections setValue:[NSNumber numberWithInt:1] forKey:key];
             [self.tableView insertRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
         }else{
             // expanded; collapse
+            ItineraryMasterCell *cell = (ItineraryMasterCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            [cell.expandCollapseLabel setText:@"v"];
+            
             [expandedSections setValue:[NSNumber numberWithInt:0] forKey:key];
             [self.tableView deleteRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
         }
