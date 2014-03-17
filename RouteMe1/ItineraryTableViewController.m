@@ -39,6 +39,7 @@
     appDelegate = [[UIApplication sharedApplication] delegate];
     expandedSections = [[NSMutableDictionary alloc] init];
     
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -79,6 +80,15 @@
     return -1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 63.0f;
+    }
+    
+    return 51;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -93,6 +103,7 @@
         
         [cell1.cityLabel setText:((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).name];
         [cell1.activitiesLabel setText:[NSString stringWithFormat:@"%lu activities planned.", (unsigned long)((DestinationObject *)[[appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]).selected_activities.count]];
+        [cell1 setFrame:CGRectMake(0, 0, 320, 63)];
         
         cell = cell1;
     }else{
