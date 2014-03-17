@@ -11,6 +11,7 @@
 #import "DestinationObject.h"
 #import "TripManager.h"
 #import "POISuggestion.h"
+#import "DestinationsTableViewController.h"
 
 @interface DestinationSearchViewController ()
 
@@ -43,10 +44,46 @@
     tripManager = _appDelegate.tripManager;
     
     [searchbar becomeFirstResponder];
-    
+
+    //Change search button to done in keyboard
+    for(UIView *subView in [searchbar subviews]) {
+        if([subView conformsToProtocol:@protocol(UITextInputTraits)]) {
+            [(UITextField *)subView setReturnKeyType: UIReturnKeyDone];
+        } else {
+            for(UIView *subSubView in [subView subviews]) {
+                if([subSubView conformsToProtocol:@protocol(UITextInputTraits)]) {
+                    [(UITextField *)subSubView setReturnKeyType: UIReturnKeyDone];
+                }
+            }      
+        }
+    }
+
+    //Navbar
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
+    [self.navigationItem setRightBarButtonItem:doneBtn];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+- (void)doneButtonSelected:(id)sender{
+
+    if ([_appDelegate.tripManager getDestinations] != nil && [[_appDelegate.tripManager getDestinations] count] > 0) {
+        // optimize
+        [_appDelegate.tripManager getOptimalPath];
+
+        // segue
+        [self performSegueWithIdentifier:@"destination_selected_segue" sender:self];
+    }else{
+        [[UIAlertView alloc]
+         initWithTitle:@"Umm where are you going" message:@"Please select at least one destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
+    }
+
 }
 
 - (void)startRefreshTimer {
@@ -114,6 +151,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self stopRefreshTimer];
+
+    if([tripManager destinationAlreadySelected:[cities objectAtIndex:indexPath.row]]) {
+        NSString *title = [NSString stringWithFormat:@"Oops! Looks like you're already going to %@!", [cities objectAtIndex:indexPath.row]];
+        [[UIAlertView alloc] initWithTitle:title message:@"Please select another destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
+        return;
+    }
     
     //Create DestinationObject and add to destination
     [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
@@ -180,6 +223,16 @@
 
 - (void) refreshResults {
     [self.tableView reloadData];
+}
+
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString * segueName = segue.identifier;
+    if ([segueName isEqualToString:@"destination_selected_segue"]){
+    }
+
 }
 
 @end

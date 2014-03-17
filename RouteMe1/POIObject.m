@@ -19,6 +19,7 @@
 @synthesize likes = _likes;
 @synthesize checkins = _checkins;
 @synthesize tags = _tags;
+@synthesize price = _price;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj {
     NSDictionary *venue = [obj objectForKey:@"venue"];
@@ -61,6 +62,9 @@
         [_tags addObject:[tag objectForKey:@"shortName"]];
         [_tags addObject:[tag objectForKey:@"pluralName"]];
     }
+
+    //Price
+    _price = [venue objectForKey:@"price"];
 
     return self;
 }

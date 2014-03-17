@@ -34,6 +34,9 @@
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:UIColorFromRGB(0x4ee6c7), UITextAttributeTextColor, [UIColor whiteColor], UITextAttributeTextShadowColor, nil];
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
 
+    //Change checkmark tint color
+    [[UITableViewCell appearance] setTintColor:UIColorFromRGB(0x2d2d2d)];
+
     //Google API Key
     [GMSServices provideAPIKey:@"AIzaSyALlkTKco5knj1DCXMQYhH2xnkT4c9rHhM"];
     

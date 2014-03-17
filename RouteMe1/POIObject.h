@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSNumber *likes;
 @property (strong, nonatomic) NSNumber *checkins;
 @property (strong, nonatomic) NSMutableArray *tags;
+@property (strong, nonatomic) NSString *price;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj;
 

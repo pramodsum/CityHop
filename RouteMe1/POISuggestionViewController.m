@@ -87,7 +87,26 @@
         
     }
 
+    //Searchbar
     _searchBar.delegate = (id)self;
+
+    //Change search button in keyboard
+    for(UIView *subView in [_searchBar subviews]) {
+        if([subView conformsToProtocol:@protocol(UITextInputTraits)]) {
+            [(UITextField *)subView setReturnKeyType: UIReturnKeyDone];
+        } else {
+            for(UIView *subSubView in [subView subviews]) {
+                if([subSubView conformsToProtocol:@protocol(UITextInputTraits)]) {
+                    [(UITextField *)subSubView setReturnKeyType: UIReturnKeyDone];
+                }
+            }
+        }
+    }
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,7 +166,8 @@
 
     [cell.activityName setText:[poi name]];
     [cell.activityAddress setText:[poi address]];
-    [cell.activityRating setText:[[poi rating] stringValue]];
+//    [cell.activityRating setText:[[poi rating] stringValue]];
+    [cell.activityRating setText:[poi price]];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
 
@@ -220,7 +240,7 @@
                 }
             }
         }
-        NSLog(@"%i activities found for %@", [filteredTableData count], text);
+        NSLog(@"%lu activities found for %@", (unsigned long)[filteredTableData count], text);
     }
 
     [self.tableView reloadData];
