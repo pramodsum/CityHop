@@ -63,7 +63,7 @@
 
         UIBarButtonItem *nextCityBtn =
         [[UIBarButtonItem alloc]
-         initWithTitle:[[((DestinationObject *)[_destinations objectAtIndex:_index.intValue+1]).name componentsSeparatedByString:@","] objectAtIndex:0]
+         initWithTitle:@"Next"
          style:UIBarButtonItemStylePlain
          target:self
          action:@selector(nextCity:)];

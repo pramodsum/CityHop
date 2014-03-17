@@ -155,24 +155,25 @@
     if([tripManager destinationAlreadySelected:[cities objectAtIndex:indexPath.row]]) {
         NSString *title = [NSString stringWithFormat:@"Oops! Looks like you're already going to %@!", [cities objectAtIndex:indexPath.row]];
         [[UIAlertView alloc] initWithTitle:title message:@"Please select another destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
-        return;
+//        return;
     }
-    
-    //Create DestinationObject and add to destination
-    [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
-    if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
-        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }else{
-        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+    else {
+        //Create DestinationObject and add to destination
+        [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
+        if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
+            [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+        }else{
+            [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
+        }
+
+        NSLog(@"%@ added to itinerary.", [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"]);
+
+        NSString *city = [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"];
+
+        POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
+        [poiSuggestion getVenuesWithCity: city];
     }
 
-    NSLog(@"%@ added to itinerary.", [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"]);
-
-    NSString *city = [[[[cities objectAtIndex:indexPath.row] objectForKey:@"terms"] objectAtIndex:0] objectForKey:@"value"];
-
-    POISuggestion *poiSuggestion = [[POISuggestion alloc] init];
-    [poiSuggestion getVenuesWithCity: city];
-    
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 }
 

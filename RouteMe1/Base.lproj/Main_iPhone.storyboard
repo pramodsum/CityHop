@@ -104,7 +104,7 @@
             </objects>
             <point key="canvasLocation" x="472" y="64"/>
         </scene>
-        <!--Configure View Controller - Input-->
+        <!--Configure View Controller - Destinations-->
         <scene sceneID="Ber-e9-LLH">
             <objects>
                 <viewController id="yQf-g1-hDQ" customClass="ConfigureViewController" sceneMemberID="viewController">
@@ -136,8 +136,8 @@
                                     <segue destination="fUj-5P-D39" kind="push" identifier="add_destinations_segue" id="mWK-vf-T8h"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destinations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb8-DI-2jT">
-                                <rect key="frame" x="20" y="76" width="116" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Destinations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb8-DI-2jT">
+                                <rect key="frame" x="20" y="76" width="177" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                             <constraint firstItem="NgZ-LU-ecb" firstAttribute="top" secondItem="cT5-Wu-CeE" secondAttribute="top" constant="110" id="KXL-nm-h4O"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Input" id="zV9-ob-eX3"/>
+                    <navigationItem key="navigationItem" title="Destinations" id="zV9-ob-eX3"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="addBtn" destination="eQL-qs-pFJ" id="kZX-G4-Jmv"/>
