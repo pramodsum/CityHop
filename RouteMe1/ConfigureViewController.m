@@ -39,10 +39,14 @@
     
     appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
+    
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonSelected:)];
     [self.navigationItem setRightBarButtonItem:doneBtn];
     
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)doneButtonSelected:(id)sender{
