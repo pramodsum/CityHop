@@ -21,5 +21,7 @@
 @property (strong, nonatomic) NSNumber *index;
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
+@property (strong, nonatomic) IBOutlet UIButton *addButton;
+- (IBAction)addActivity:(id)sender;
 
 @end

@@ -12,6 +12,9 @@
 		496C478518D6253700792038 /* placeholder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 496C478418D6253700792038 /* placeholder.jpeg */; };
 		496C478D18D6893800792038 /* clearBlur.png in Resources */ = {isa = PBXBuildFile; fileRef = 496C478C18D6893800792038 /* clearBlur.png */; };
 		496C478F18D68B5A00792038 /* cityhop_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 496C478E18D68B5A00792038 /* cityhop_transparent.png */; };
+		496C479318D6B05D00792038 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496C479218D6B05D00792038 /* SwipeView.m */; };
+		496C479618D6B20700792038 /* POIDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496C479518D6B20600792038 /* POIDetailCell.m */; };
+		496C479918D6BB3E00792038 /* SMXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 496C479818D6BB3E00792038 /* SMXMLDocument.m */; };
 		498AC87218BAB3AB00548A1E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498AC87118BAB3AB00548A1E /* MapKit.framework */; };
 		49B3C81E18BF7D8E009600A8 /* DestinationSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */; };
 		49BA4A1A18D37EAD002A67D6 /* POIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA4A1918D37EAD002A67D6 /* POIObject.m */; };
@@ -91,6 +94,12 @@
 		496C478418D6253700792038 /* placeholder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpeg; sourceTree = "<group>"; };
 		496C478C18D6893800792038 /* clearBlur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearBlur.png; sourceTree = "<group>"; };
 		496C478E18D68B5A00792038 /* cityhop_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cityhop_transparent.png; sourceTree = "<group>"; };
+		496C479118D6B05D00792038 /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		496C479218D6B05D00792038 /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		496C479418D6B20600792038 /* POIDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailCell.h; sourceTree = "<group>"; };
+		496C479518D6B20600792038 /* POIDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailCell.m; sourceTree = "<group>"; };
+		496C479718D6BB3E00792038 /* SMXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMXMLDocument.h; sourceTree = "<group>"; };
+		496C479818D6BB3E00792038 /* SMXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMXMLDocument.m; sourceTree = "<group>"; };
 		498AC87118BAB3AB00548A1E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		49B3C81C18BF7D8E009600A8 /* DestinationSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSearchViewController.h; sourceTree = "<group>"; };
 		49B3C81D18BF7D8E009600A8 /* DestinationSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSearchViewController.m; sourceTree = "<group>"; };
@@ -241,6 +250,15 @@
 			name = POISearch;
 			sourceTree = "<group>";
 		};
+		496C479018D6B05D00792038 /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				496C479118D6B05D00792038 /* SwipeView.h */,
+				496C479218D6B05D00792038 /* SwipeView.m */,
+			);
+			path = SwipeView;
+			sourceTree = "<group>";
+		};
 		49BA4A3418D5FE94002A67D6 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +298,9 @@
 		49BA4A6018D5FE9B002A67D6 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				496C479718D6BB3E00792038 /* SMXMLDocument.h */,
+				496C479818D6BB3E00792038 /* SMXMLDocument.m */,
+				496C479018D6B05D00792038 /* SwipeView */,
 				49BA4A3418D5FE94002A67D6 /* SDWebImage */,
 			);
 			name = ThirdParty;
@@ -444,6 +465,8 @@
 				4FA1283518D4A864008E65DA /* EditDestinationsCell.m */,
 				49344FCC18D122CE0043AD1B /* POISuggestionCell.h */,
 				49344FCD18D122CE0043AD1B /* POISuggestionCell.m */,
+				496C479418D6B20600792038 /* POIDetailCell.h */,
+				496C479518D6B20600792038 /* POIDetailCell.m */,
 				4F390F0218D62FEF00D1FA5F /* ItineraryMasterCell.h */,
 				4F390F0318D62FEF00D1FA5F /* ItineraryMasterCell.m */,
 				4FB42A8C18D64ADE00AD622D /* ItineraryChildCell.h */,
@@ -568,6 +591,7 @@
 				49BA4A5C18D5FE94002A67D6 /* UIImage+GIF.m in Sources */,
 				49BA4A5918D5FE94002A67D6 /* SDWebImageManager.m in Sources */,
 				49BA4A5818D5FE94002A67D6 /* SDWebImageDownloaderOperation.m in Sources */,
+				496C479618D6B20700792038 /* POIDetailCell.m in Sources */,
 				4FE4323D18AFDB1C00D06F9B /* LoginViewController.m in Sources */,
 				49BA4A5418D5FE94002A67D6 /* SDImageCache.m in Sources */,
 				49BA4A5218D5FE94002A67D6 /* MKAnnotationView+WebCache.m in Sources */,
@@ -586,6 +610,7 @@
 				49BA4A5518D5FE94002A67D6 /* SDWebImageCompat.m in Sources */,
 				49BA4A5318D5FE94002A67D6 /* NSData+ImageContentType.m in Sources */,
 				4F390F0418D62FEF00D1FA5F /* ItineraryMasterCell.m in Sources */,
+				496C479918D6BB3E00792038 /* SMXMLDocument.m in Sources */,
 				49BA4A5618D5FE94002A67D6 /* SDWebImageDecoder.m in Sources */,
 				4FE4321318AFD15700D06F9B /* RouteMe1.xcdatamodeld in Sources */,
 				49BA4A5B18D5FE94002A67D6 /* UIButton+WebCache.m in Sources */,
@@ -598,6 +623,7 @@
 				49BA4A5718D5FE94002A67D6 /* SDWebImageDownloader.m in Sources */,
 				4F390EFE18D6292500D1FA5F /* ItineraryViewController.m in Sources */,
 				49BA4A1A18D37EAD002A67D6 /* POIObject.m in Sources */,
+				496C479318D6B05D00792038 /* SwipeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

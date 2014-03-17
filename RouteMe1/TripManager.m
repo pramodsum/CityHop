@@ -177,4 +177,13 @@
     return;
 }
 
+- (void) addVenueToDestinationByID:(POIObject *)venue :(NSNumber *)destinationID {
+    for (DestinationObject *d in destinations) {
+        if (d.destID == destinationID) {
+            POIObject *poi = [[POIObject alloc] init];
+            [d addVenue:poi];
+            break;
+        }
+    }}
+
 @end

@@ -9,6 +9,7 @@
 #import "POISuggestionViewController.h"
 #import "POISuggestion.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "POIDetailCell.h"
 
 @interface POISuggestionViewController ()
 
@@ -20,6 +21,7 @@
     TripManager *tripManager;
     DestinationObject *destination;
     BOOL isFiltered;
+    NSMutableDictionary *expandedSections;
 }
 
 @synthesize index = _index;
@@ -47,6 +49,7 @@
 
     // init destination
     destination = (DestinationObject *)[_destinations objectAtIndex:_index.intValue];
+    expandedSections = [[NSMutableDictionary alloc] init];
 
     // initialize data
     if (activitySuggestions == nil) {
@@ -135,62 +138,115 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    // Return the number of sections.
+    return [destination activitiesCount];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(isFiltered) {
-        return [filteredTableData count];
+
+    // Return the number of rows in the section.
+    NSString *key = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)section]];
+    NSNumber *isExpanded = [expandedSections valueForKey:key];
+
+    // check if expanded
+    if (isExpanded == nil || isExpanded.intValue == 0) {
+        if(isFiltered) {
+            return [filteredTableData count];
+        }
+        return [destination activitiesCount];
+    }else{
+        // expanded
+        return [((DestinationObject *)[[_appDelegate.tripManager getDestinations] objectAtIndex:section]) selected_activities].count +1;
     }
-    return [destination activitiesCount];
+
+    return -1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"POICell";
+    UITableViewCell *cell = nil;
 
-    POISuggestionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (indexPath.row == 0) {
+        POISuggestionCell *poicell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    if (cell == nil) {
-        cell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+        if (poicell == nil) {
+            poicell = [[POISuggestionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
 
-    POIObject *poi;
-    if(isFiltered) {
-        poi = [filteredTableData objectAtIndex:indexPath.row];
+        POIObject *poi;
+        if(isFiltered) {
+            poi = [filteredTableData objectAtIndex:indexPath.row];
+        }
+        else {
+            poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+        }
+
+        [poicell.activityName setText:[poi name]];
+        [poicell.activityAddress setText:[poi address]];
+        //    [cell.activityRating setText:[[poi rating] stringValue]];
+        [poicell.activityRating setText:[poi price]];
+        [poicell setAccessoryType:UITableViewCellAccessoryNone];
+        [poicell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
+        cell = poicell;
     }
     else {
-        poi = (POIObject *)[destination venueAtIndex:indexPath.row];
-    }
+        POIDetailCell *poidetailcell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    [cell.activityName setText:[poi name]];
-    [cell.activityAddress setText:[poi address]];
-//    [cell.activityRating setText:[[poi rating] stringValue]];
-    [cell.activityRating setText:[poi price]];
-    [cell setAccessoryType:UITableViewCellAccessoryNone];
-    [cell.activityImage setImageWithURL:[NSURL URLWithString:[poi imageURL]] placeholderImage:[UIImage imageNamed:@"placeholder.jpeg"]];
+        if (poidetailcell == nil) {
+            poidetailcell = [[POIDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+
+        POIObject *poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+
+        [poidetailcell.rating setText:[[poi rating] stringValue]];
+        [poidetailcell.twitter setText:[NSString stringWithFormat:@"@%@", [poi twitter]]];
+        [poidetailcell.url setText:[poi url]];
+        [poidetailcell.description setText:[poi description]];
+        [poidetailcell.phone setText:[poi phone_number]];
+        poidetailcell.poi = poi;
+        poidetailcell.destIndexPath = destination.destID;
+
+        cell = poidetailcell;
+    }
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    POIObject *poi;
-    if(isFiltered) {
-        poi = [filteredTableData objectAtIndex:indexPath.row];
-    }
-    else {
-        poi = (POIObject *)[destination venueAtIndex:indexPath.row];
+    if (indexPath.row == 0) {
+        // expand/collapse
+        [self.tableView beginUpdates];
+
+        NSString *key = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)indexPath.section]];
+        NSNumber *isExpanded = [expandedSections valueForKey:key];
+
+        NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+        for (int i=0; i<[((DestinationObject *)[[_appDelegate.tripManager getDestinations] objectAtIndex:indexPath.section]) selected_activities].count; ++i) {
+            [tmpArray addObject:[NSIndexPath indexPathForRow:i+1 inSection:indexPath.section]];
+        }
+
+        // check if expanded
+        if (isExpanded == nil || isExpanded.intValue == 0) {
+            // not expanded; expand
+            POIDetailCell *cell = (POIDetailCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+
+            [expandedSections setValue:[NSNumber numberWithInt:1] forKey:key];
+            [self.tableView insertRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }else{
+            // expanded; collapse
+            POIDetailCell *cell = (POIDetailCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+
+            [expandedSections setValue:[NSNumber numberWithInt:0] forKey:key];
+            [self.tableView deleteRowsAtIndexPaths:tmpArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+
+        [self.tableView endUpdates];
     }
 
-    if ([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryNone) {
-        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
-        [tripManager selectVenueinDestination:poi :destination];
-    }else{
-        [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
-//        [tripManager deselectVenueinDestination:poi :destination];
-    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation

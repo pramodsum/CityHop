@@ -25,6 +25,7 @@
 // POI related
 - (void) addVenueToDestinationFromAPI:(NSDictionary *)venue :(NSString *)destination;
 - (void) addVenueToDestination:(POIObject *)venue :(DestinationObject *)destination;
+- (void) addVenueToDestinationByID:(POIObject *)venue :(NSNumber *)destinationID;
 - (void) addVenueToDestinationWithString:(POIObject *)venue :(NSString *)destination;
 - (BOOL) destinationAlreadySelected:(NSString *) destination;
 

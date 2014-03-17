@@ -50,7 +50,7 @@
 }
 
 - (void) sortVenues {
-    [activities sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"rating" ascending:NO]]];
+    [activities sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:NO]]];
 }
 
 - (NSArray*) getActivities {

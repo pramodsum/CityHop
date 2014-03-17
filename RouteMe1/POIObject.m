@@ -7,8 +7,11 @@
 //
 
 #import "POIObject.h"
+#import "SMXMLDocument.h"
 
-@implementation POIObject
+@implementation POIObject {
+    NSXMLParser *parser;
+}
 
 @synthesize venueID = _venueID;
 @synthesize name = _name;
@@ -20,6 +23,12 @@
 @synthesize checkins = _checkins;
 @synthesize tags = _tags;
 @synthesize price = _price;
+@synthesize sortOrder = _sortOrder;
+@synthesize twitter = _twitter;
+@synthesize phone_number = _phone_number;
+@synthesize url = _url;
+@synthesize description = _description;
+@synthesize selected = _selected;
 
 - (POIObject *) initWithObject:(NSDictionary *) obj {
     NSDictionary *venue = [obj objectForKey:@"venue"];
@@ -52,7 +61,8 @@
     //Rating
     _likes = [[venue objectForKey:@"likes"] objectForKey:@"count"];
     _checkins = [[venue objectForKey:@"stats"] objectForKey:@"checkinsCount"];
-    _rating = @([_likes integerValue] + [_checkins integerValue]);
+    _rating = [venue objectForKey:@"rating"];
+    _sortOrder = @([_likes integerValue] + [_checkins integerValue]);
 
     //Tags
     NSArray *categories = [venue objectForKey:@"categories"];
@@ -66,7 +76,45 @@
     //Price
     _price = [venue objectForKey:@"price"];
 
+    //Contact
+    _twitter = [[venue objectForKey:@"contact"] objectForKey:@"twitter"];
+    _phone_number = [[venue objectForKey:@"contact"] objectForKey:@"formattedPhone"];
+    _url = [venue objectForKey:@"url"];
+
+    //Description
+    [parser setDelegate:self];
+    [self getVenueDescription];
+
+    //Not Selected
+    _selected = NO;
+
     return self;
+}
+
+- (void) getVenueDescription {
+    NSString *name = [_name stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+
+    NSString *wiki_url = [NSString
+                          stringWithFormat:@"http://api.geonames.org/wikipediaSearch?q=%@&maxRows=1&username=demo",
+                          name];
+
+    NSURL *wikiURL = [NSURL URLWithString:wiki_url];
+
+    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:wikiURL] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+
+
+        if (!error) {
+            SMXMLDocument *document = [SMXMLDocument documentWithData:data error:&error];
+            SMXMLElement *articles = [document childNamed:@"geonames"];
+            for (SMXMLElement *summary in [articles childrenNamed:@"entry"]) {
+                _description = [summary attributeNamed:@"summary"] ;
+                NSLog(@"%@", _description);
+            }
+
+        } else {
+            NSLog(@"ERROR: %@", error);
+        }
+    }];
 }
 
 @end
