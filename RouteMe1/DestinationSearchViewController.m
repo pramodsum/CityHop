@@ -114,6 +114,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self stopRefreshTimer];
+
+    if([tripManager destinationAlreadySelected:[cities objectAtIndex:indexPath.row]]) {
+        NSString *title = [NSString stringWithFormat:@"Oops! Looks like you're already going to %@!", [cities objectAtIndex:indexPath.row]];
+        [[UIAlertView alloc] initWithTitle:title message:@"Please select another destination" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil].show;
+        return;
+    }
     
     //Create DestinationObject and add to destination
     [tripManager addDestination:[[DestinationObject alloc] initObject:[cities objectAtIndex:indexPath.row]]];
