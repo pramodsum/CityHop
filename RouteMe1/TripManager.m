@@ -69,10 +69,12 @@
 }
 
 - (BOOL) destinationAlreadySelected:(NSString *) name {
-    for(int i = 0; i < destinations.count; i++) {
-        if([destinations[i] valueForKey:name] == name)
+    for (DestinationObject *d in destinations) {
+        if (d.name == name) {
             return YES;
+        }
     }
+    NSLog(@"Destination isn't already in itinerary found.");
     return NO;
 }
 
